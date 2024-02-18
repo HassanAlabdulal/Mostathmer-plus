@@ -27,21 +27,21 @@ interface RouteProps {
 
 const routeList: RouteProps[] = [
   {
-    href: "#features",
-    label: "Features",
+    href: "/",
+    label: "الصفحة الرئيسية",
   },
   {
-    href: "#testimonials",
-    label: "Testimonials",
+    href: "/",
+    label: "الاستثمارات",
   },
   {
-    href: "#pricing",
-    label: "Pricing",
+    href: "/",
+    label: "إضافة استثمار",
   },
-  {
-    href: "#faq",
-    label: "FAQ",
-  },
+  //   {
+  //     href: "#faq",
+  //     label: "FAQ",
+  //   },
 ];
 
 export default function Navbar() {
@@ -53,7 +53,7 @@ export default function Navbar() {
           <NavigationMenuItem className="font-bold flex">
             <a href="/" className="ml-2 font-bold text-xl flex">
               {/* <LogoIcon /> */}
-              ShadcnUI/React
+              مُستثمر بلس
             </a>
           </NavigationMenuItem>
 
@@ -74,7 +74,7 @@ export default function Navbar() {
               <SheetContent side={"left"}>
                 <SheetHeader>
                   <SheetTitle className="font-bold text-xl">
-                    Shadcn/React
+                    مُستثمر بلس
                   </SheetTitle>
                 </SheetHeader>
                 <nav className="flex flex-col justify-center items-center gap-2 mt-4">
@@ -96,7 +96,7 @@ export default function Navbar() {
                     })}`}
                   >
                     {/* <GitHubLogoIcon className="mr-2 w-5 h-5" /> */}
-                    Github
+                    تسجيل الدخول
                   </a>
                 </nav>
               </SheetContent>
@@ -125,7 +125,7 @@ export default function Navbar() {
               className={`border ${buttonVariants({ variant: "secondary" })}`}
             >
               {/* <GitHubLogoIcon className="mr-2 w-5 h-5" /> */}
-              Github
+              تسجيل الدخول
             </a>
 
             <ModeToggle />
