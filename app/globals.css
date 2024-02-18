@@ -55,3 +55,12 @@
     @apply bg-background text-foreground;
   }
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  direction: rtl;
+  /* font-family: "Tajawal", sans-serif; */
+  /* background-color: #f9f9f9; */
+}
