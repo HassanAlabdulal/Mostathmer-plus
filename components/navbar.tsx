@@ -15,9 +15,10 @@ import {
 } from "@/components/ui/sheet";
 
 // import { GitHubLogoIcon } from "@radix-ui/react-icons";
-import { buttonVariants } from "./ui/button";
+import { Button, buttonVariants } from "./ui/button";
 import { Menu } from "lucide-react";
 import ModeToggle from "./mode-toggle";
+import Link from "next/link";
 // import { LogoIcon } from "./Icons";
 
 interface RouteProps {
@@ -88,16 +89,9 @@ export default function Navbar() {
                       {label}
                     </a>
                   ))}
-                  <a
-                    href="https://github.com/leoMirandaa/shadcn-landing-page.git"
-                    target="_blank"
-                    className={`w-[110px] border ${buttonVariants({
-                      variant: "secondary",
-                    })}`}
-                  >
-                    {/* <GitHubLogoIcon className="mr-2 w-5 h-5" /> */}
-                    تسجيل الدخول
-                  </a>
+                  <Button asChild>
+                    <Link href="/"> تسجيل الدخول</Link>
+                  </Button>
                 </nav>
               </SheetContent>
             </Sheet>
@@ -119,14 +113,9 @@ export default function Navbar() {
           </nav>
 
           <div className="hidden md:flex gap-2">
-            <a
-              href="https://github.com/leoMirandaa/shadcn-landing-page.git"
-              target="_blank"
-              className={`border ${buttonVariants({ variant: "secondary" })}`}
-            >
-              {/* <GitHubLogoIcon className="mr-2 w-5 h-5" /> */}
-              تسجيل الدخول
-            </a>
+            <Button asChild>
+              <Link href="/"> تسجيل الدخول</Link>
+            </Button>
 
             <ModeToggle />
           </div>
