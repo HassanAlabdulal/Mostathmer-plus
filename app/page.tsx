@@ -19,7 +19,7 @@ export default function Home() {
         <div className="absolute top-0 right-0 -z-10">
           <img src={shape} alt="Top right background shape" />
         </div>
-        <div className="absolute bottom-0 right-0 -z-10">
+        {/* <div className="absolute bottom-0 right-0 -z-10">
           <img
             src="/assets/bottom-right-gradient.png"
             alt="blob background shape"
@@ -30,7 +30,7 @@ export default function Home() {
             src="/assets/top-left-gradient.png"
             alt="blob background shape"
           />
-        </div>
+        </div> */}
         <div className="relative">
           {/* <CategorySection /> */}
           {/* <div className="absolute top-0 right-0">
