@@ -44,7 +44,6 @@ export default function SignIn() {
     e.preventDefault();
     // Validate form data against the schema.
     const result = authSchema.safeParse(formData);
-
     interface FormErrors {
       [key: string]: string | undefined; // This is the index signature
       // ... other explicitly defined keys can go here
