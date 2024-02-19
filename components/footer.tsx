@@ -5,6 +5,7 @@ import {
   LinkedInLogoIcon,
   TwitterLogoIcon,
 } from "@radix-ui/react-icons";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -13,7 +14,13 @@ export default function Footer() {
 
       <section className="container py-20 flex justify-center items-center">
         <div>
-          <img src="" alt="" />
+          <Image
+            src="/assets/email.svg"
+            width={200}
+            height={200}
+            alt="Email
+          "
+          />{" "}
         </div>
         <div></div>
       </section>
