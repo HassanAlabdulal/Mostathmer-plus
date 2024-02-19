@@ -67,7 +67,7 @@ export default function Navbar() {
           </NavigationMenuItem>
 
           {/* mobile */}
-          <span className="flex md:hidden">
+          <div className="flex md:hidden">
             <ModeToggle />
 
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -76,7 +76,7 @@ export default function Navbar() {
                   className="flex md:hidden h-5 w-5"
                   onClick={() => setIsOpen(true)}
                 >
-                  <span className="sr-only">Menu Icon</span>
+                  <Button className="sr-only">Menu Icon</Button>
                 </Menu>
               </SheetTrigger>
 
@@ -108,7 +108,7 @@ export default function Navbar() {
                 </nav>
               </SheetContent>
             </Sheet>
-          </span>
+          </div>
 
           {/* desktop */}
           <nav className="hidden md:flex gap-2">
