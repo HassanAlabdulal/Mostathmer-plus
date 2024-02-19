@@ -1,10 +1,12 @@
 "use client";
 
-// import {
-//   GitHubLogoIcon,
-//   LinkedInLogoIcon,
-//   TwitterLogoIcon,
-// } from "@radix-ui/react-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faXTwitter,
+  faGithub,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
+
 import Image from "next/image";
 
 export default function Footer() {
@@ -13,9 +15,13 @@ export default function Footer() {
       <hr className="w-11/12 mx-auto" />
 
       <section className=" py-20 flex flex-col md:flex-row justify-center items-center md:gap-16 gap-12">
-        <div className="max-md:w-[150px] max-md:h-[150px]">
-          <Image src="/assets/email.svg" width={200} height={200} alt="Email" />
-        </div>
+        <Image
+          src="/assets/email.svg"
+          width={200}
+          height={200}
+          className="max-md:w-[150px] max-md:h-[150px] "
+          alt="Email"
+        />
         <div className="flex flex-col w-[20rem] gap-4 justify-center max-md:items-center">
           <h1 className="text-xl font-bold">تواصل معنا</h1>
           <div>
@@ -27,10 +33,16 @@ export default function Footer() {
         </div>
       </section>
 
-      <section className=" pb-8 flex justify-center items-center gap-4">
-        <div className="h-8 w-8">{/* <GitHubLogoIcon /> */}</div>
-        <div className="h-8 w-8">{/* <LinkedInLogoIcon /> */}</div>
-        <div className="h-8 w-8">{/* <TwitterLogoIcon /> */}</div>
+      <section className=" pb-8 flex justify-center items-center gap-5">
+        <a href="/" className="text-2xl">
+          <FontAwesomeIcon icon={faXTwitter} />
+        </a>
+        <a href="/" className="text-2xl">
+          <FontAwesomeIcon icon={faGithub} />
+        </a>
+        <a href="/" className="text-2xl">
+          <FontAwesomeIcon icon={faLinkedin} />
+        </a>
       </section>
 
       <section className="container pb-14 text-center">
