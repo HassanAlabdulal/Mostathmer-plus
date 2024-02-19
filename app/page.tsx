@@ -1,8 +1,11 @@
-import Image from "next/image";
+"use client";
+
+import Homepage from "@/components/sections/homepage";
 
 export default function Home() {
-  console.log("hi");
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24"></main>
+    <section>
+      <Homepage />
+    </section>
   );
 }
