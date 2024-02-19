@@ -52,7 +52,11 @@ export default function Navbar() {
       <NavigationMenu className="mx-auto">
         <NavigationMenuList className="container h-14 px-4 w-screen flex justify-between ">
           <NavigationMenuItem className="font-bold flex">
-            <a href="/" className="ml-2 font-bold text-xl flex">
+            <a
+              href="/"
+              className="scroll-m-20 text-2xl font-bold tracking-tight 
+                    lg:text-3xl rounded-xl "
+            >
               {/* <LogoIcon /> */}
               مُستثمر بلس
             </a>
@@ -74,7 +78,10 @@ export default function Navbar() {
 
               <SheetContent side={"left"}>
                 <SheetHeader>
-                  <SheetTitle className="font-bold text-xl">
+                  <SheetTitle
+                    className="scroll-m-20 text-2xl font-bold tracking-tight 
+                     rounded-xl"
+                  >
                     مُستثمر بلس
                   </SheetTitle>
                 </SheetHeader>
@@ -103,7 +110,7 @@ export default function Navbar() {
               <a
                 href={route.href}
                 key={i}
-                className={`text-[17px] ${buttonVariants({
+                className={`font-semibold text-lg ${buttonVariants({
                   variant: "ghost",
                 })}`}
               >
