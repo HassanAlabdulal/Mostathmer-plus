@@ -56,13 +56,11 @@ export default function Navbar() {
               className="scroll-m-20 text-2xl font-bold tracking-tight 
                     lg:text-3xl rounded-xl flex justify-center items-center gap-2"
             >
-              {/* <LogoIcon /> */}
               <Image
                 src="/assets/logo-50.svg"
                 width={40}
                 height={40}
-                className="max-md:w-[150px] max-md:h-[150px]"
-                alt="Email"
+                alt="Logo"
               />
               مُستثمر بلس
             </a>
