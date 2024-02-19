@@ -14,7 +14,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
-import { authSchema } from "@/validators/auth";
+import { signInSchema } from "@/validators/sign-in";
 
 // Define the interface for form error messages.
 interface FormErrors {
@@ -43,7 +43,7 @@ export default function SignIn() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Validate form data against the schema.
-    const result = authSchema.safeParse(formData);
+    const result = signInSchema.safeParse(formData);
 
     interface FormErrors {
       [key: string]: string | undefined; // This is the index signature
