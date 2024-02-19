@@ -14,27 +14,6 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col gap-2">
-          <h3 className="font-bold text-lg">تابعنا</h3>
-          <div>
-            <a href="#" className="opacity-60 hover:opacity-100">
-              Github
-            </a>
-          </div>
-
-          <div>
-            <a href="#" className="opacity-60 hover:opacity-100">
-              Twitter
-            </a>
-          </div>
-
-          <div>
-            <a href="#" className="opacity-60 hover:opacity-100">
-              Dribbble
-            </a>
-          </div>
-        </div>
-
-        <div className="flex flex-col gap-2">
           <h3 className="font-bold text-lg">عنا</h3>
           <div>
             <a href="#" className="opacity-60 hover:opacity-100">
@@ -56,6 +35,26 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col gap-2">
+          <h3 className="font-bold text-lg">تابعنا</h3>
+          <div>
+            <a href="#" className="opacity-60 hover:opacity-100">
+              Github
+            </a>
+          </div>
+
+          <div>
+            <a href="#" className="opacity-60 hover:opacity-100">
+              Twitter
+            </a>
+          </div>
+
+          <div>
+            <a href="#" className="opacity-60 hover:opacity-100">
+              Dribbble
+            </a>
+          </div>
+        </div>
+        <div className="flex flex-col gap-2">
           <h3 className="text-lg font-bold">تواصل معنا</h3>
 
           <div>
@@ -67,15 +66,8 @@ export default function Footer() {
       </section>
 
       <section className="container pb-14 text-center">
-        <h3>
-          &copy; 2024 جميع الحقوق محفوظة لفريق مُستثمر بلس
-          <a
-            target="_blank"
-            href="https://github.com/leoMirandaa"
-            className="text-primary transition-all border-primary hover:border-b-2"
-          >
-            Leo Miranda
-          </a>
+        <h3 className="flex gap-1 justify-center items-center">
+          جميع الحقوق محفوظة لفريق مُستثمر بلس &copy; ٢٠٢٤
         </h3>
       </section>
     </footer>
