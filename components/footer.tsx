@@ -1,6 +1,6 @@
-// import { LogoIcon } from "./Icons";
+"use client";
 
-export const Footer = () => {
+export default function Footer() {
   return (
     <footer id="footer">
       <hr className="w-11/12 mx-auto" />
@@ -80,4 +80,4 @@ export const Footer = () => {
       </section>
     </footer>
   );
-};
+}
