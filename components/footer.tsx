@@ -12,8 +12,8 @@ export default function Footer() {
     <footer id="footer">
       <hr className="w-11/12 mx-auto" />
 
-      <section className="container py-20 flex flex-col md:flex-row justify-center items-center md:gap-24 gap-12">
-        <div className="">
+      <section className=" py-20 flex flex-col md:flex-row justify-center items-center md:gap-16 gap-12">
+        <div className="max-md:w-[170px] max-md:h-[170px]">
           <Image src="/assets/email.svg" width={200} height={200} alt="Email" />{" "}
         </div>
         <div className="flex flex-col w-[20rem] gap-4 max-md:justify-center max-md:items-center">
