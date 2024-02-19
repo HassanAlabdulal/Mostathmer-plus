@@ -91,7 +91,9 @@ export default function Navbar() {
                       key={label}
                       href={href}
                       onClick={() => setIsOpen(false)}
-                      className={buttonVariants({ variant: "ghost" })}
+                      className={`font-semibold text-lg ${buttonVariants({
+                        variant: "ghost",
+                      })}`}
                     >
                       {label}
                     </a>
