@@ -15,6 +15,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { signInSchema } from "@/validators/sign-in";
+import { login } from "./actions";
 
 // Define the interface for form error messages.
 interface FormErrors {
@@ -66,7 +67,8 @@ export default function SignIn() {
     } else {
       // Clear errors and log valid form data or send to server.
       setErrors({});
-      console.log("Form data is valid:", formData);
+      // console.log("Form data is valid:", formData);
+      login(formData);
     }
   };
 
