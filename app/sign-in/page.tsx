@@ -14,7 +14,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox"
-import { loginSchema } from "@/validators/auth"; 
+import { authSchema } from "@/validators/auth"; 
 
 // Define the interface for form error messages.
 interface FormErrors {
@@ -43,7 +43,7 @@ export default function SignIn() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Validate form data against the schema.
-    const result = loginSchema.safeParse(formData);
+    const result = authSchema.safeParse(formData);
     
     interface FormErrors {
       [key: string]: string | undefined; // This is the index signature
@@ -80,7 +80,7 @@ export default function SignIn() {
   // Render the sign-in form.
   return (
     <div className="flex items-center justify-center h-screen">
-      <Card className="w-[400px] h-[450px]">
+      <Card className="w-[400px]">
         <form onSubmit={handleSubmit}>
           <CardHeader>
             <CardTitle>تسجيل الدخول</CardTitle>
@@ -91,7 +91,7 @@ export default function SignIn() {
           <CardContent className="space-y-4">
             <div className="space-y-1">
               <Label htmlFor="email">البريد الالكتروني</Label>
-              <Input name="email" id="email" type="email" placeholder="help@mostathmerplus.com" onChange={handleChange} />
+              <Input name="email" id="email" type="email" placeholder="mostathmerplus@gmail.com" onChange={handleChange} />
               {errors.email && <p className="text-red-500">{errors.email}</p>}
             </div>
             <div className="space-y-1">
@@ -120,7 +120,7 @@ export default function SignIn() {
           {/* Link to sign-up page */}
           <div className="text-center">
             <span className="text-sm text-gray-600">ليس لديك حساب؟ </span>
-            <a href="/signup" className="text-sm text-blue-600 hover:underline">سجل الآن</a>
+            <a href="/sign-up" className="text-sm text-blue-600 hover:underline">سجل الآن</a>
           </div>
         </form>
       </Card>
