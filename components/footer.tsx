@@ -14,16 +14,28 @@ export default function Footer() {
 
       <section className=" py-20 flex flex-col md:flex-row justify-center items-center md:gap-16 gap-12">
         <div className="max-md:w-[170px] max-md:h-[170px]">
-          <Image src="/assets/email.svg" width={200} height={200} alt="Email" />{" "}
+          <Image src="/assets/email.svg" width={200} height={200} alt="Email" />
         </div>
-        <div className="flex flex-col w-[20rem] gap-4 max-md:justify-center max-md:items-center">
-          <h1 className="text-xl font-bold">تواصل معنا!</h1>
+        <div className="flex flex-col w-[20rem] gap-4 justify-center max-md:items-center">
+          <h1 className="text-xl font-bold">تواصل معنا</h1>
           <div>
             <p className="text-md max-md:text-center text-muted-foreground md:w-10/12 mx-auto lg:mx-0">
               نحرص على تنفيذ مقترحاتكم وملاحظاتكم وحل المشاكل التي تواجهكم في
               الموقع، راسلونا عبر البريد الإلكتروني: mostathmerplus@gmail.com
             </p>
           </div>
+        </div>
+      </section>
+
+      <section className=" pb-8 flex justify-center items-center gap-4">
+        <div className="h-8 w-8">
+          <GitHubLogoIcon />
+        </div>
+        <div className="h-8 w-8">
+          <LinkedInLogoIcon />
+        </div>
+        <div className="h-8 w-8">
+          <TwitterLogoIcon />
         </div>
       </section>
 
