@@ -1,5 +1,11 @@
 "use client";
 
+import {
+  GitHubLogoIcon,
+  LinkedInLogoIcon,
+  TwitterLogoIcon,
+} from "@radix-ui/react-icons";
+
 export default function Footer() {
   return (
     <footer id="footer">
@@ -34,23 +40,23 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 justify-center items-center text-center">
           <h3 className="font-bold text-lg">تابعنا</h3>
           <div>
             <a href="#" className="opacity-60 hover:opacity-100">
-              Github
+              <TwitterLogoIcon className="w-5 h-5" />
             </a>
           </div>
 
           <div>
             <a href="#" className="opacity-60 hover:opacity-100">
-              Twitter
+              <LinkedInLogoIcon className="w-5 h-5" />
             </a>
           </div>
 
           <div>
             <a href="#" className="opacity-60 hover:opacity-100">
-              Dribbble
+              <GitHubLogoIcon className="w-5 h-5" />
             </a>
           </div>
         </div>
