@@ -67,3 +67,10 @@
   direction: rtl;
   font-family: "Rubik", sans-serif;
 }
+
+/* .background {
+  background: url(/assets/background.svg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+} */
