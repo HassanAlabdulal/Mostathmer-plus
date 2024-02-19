@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { authSchema } from "@/validators/auth"; 
+import { signUpSchema } from "@/validators/sign-up"; 
 
 // Define the shape of the errors object
 interface FormErrors {
@@ -49,7 +49,7 @@ export default function SignUp() {
       return; // Stop the form submission if passwords don't match
     }
 
-    const result = authSchema.safeParse(formData);
+    const result = signUpSchema.safeParse(formData);
 
     if (!result.success) {
       // Loop over the issues and assign them to errors

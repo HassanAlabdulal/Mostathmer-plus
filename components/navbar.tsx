@@ -127,7 +127,7 @@ export default function Navbar() {
 
           <div className="hidden md:flex gap-2">
             <Button asChild>
-              <Link href="/"> تسجيل الدخول</Link>
+              <Link href="/sign-in"> تسجيل الدخول</Link>
             </Button>
 
             <ModeToggle />
