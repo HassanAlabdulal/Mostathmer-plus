@@ -14,12 +14,11 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-// import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import { Button, buttonVariants } from "./ui/button";
 import { Menu } from "lucide-react";
 import ModeToggle from "./mode-toggle";
 import Link from "next/link";
-// import { LogoIcon } from "./Icons";
+import Image from "next/image";
 
 interface RouteProps {
   href: string;
@@ -51,13 +50,18 @@ export default function Navbar() {
     <header className="sticky border-b-[1px] top-0 z-40 w-full bg-white dark:border-b-slate-700 dark:bg-background">
       <NavigationMenu className="mx-auto">
         <NavigationMenuList className="container h-14 px-4 w-screen flex justify-between ">
-          <NavigationMenuItem className="font-bold flex">
+          <NavigationMenuItem className="font-bold  ">
             <a
               href="/"
               className="scroll-m-20 text-2xl font-bold tracking-tight 
-                    lg:text-3xl rounded-xl "
+                    lg:text-3xl rounded-xl flex justify-center items-center gap-2"
             >
-              {/* <LogoIcon /> */}
+              <Image
+                src="/assets/logo-50.svg"
+                width={40}
+                height={40}
+                alt="Logo"
+              />
               مُستثمر بلس
             </a>
           </NavigationMenuItem>
