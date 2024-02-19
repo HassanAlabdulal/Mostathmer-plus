@@ -43,6 +43,7 @@ export default function SignIn() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Validate form data against the schema.
+
     const result = signInSchema.safeParse(formData);
 
     interface FormErrors {
