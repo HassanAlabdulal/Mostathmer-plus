@@ -2,13 +2,9 @@
 
 import Homepage from "@/components/sections/homepage";
 import Navbar from "@/components/navbar";
-import { useTheme } from "next-themes";
+import Image from "next/image";
 
 export default function Home() {
-  const { theme } = useTheme();
-  const shape =
-    theme === "dark" ? "/assets/shape-dark.png" : "/assets/shape-light.png";
-
   return (
     // <section className="min-h-screen w-full background">
     <main className="relative poppins  md:px-[9rem]">
@@ -17,7 +13,13 @@ export default function Home() {
         <Homepage />
 
         <div className="absolute top-0 right-0 -z-10">
-          <img src={shape} alt="Top right background shape" />
+          {/* <Image
+            src={shape}
+            width={430}
+            height={430}
+            className="max-md:w-[300px] max-md:h-[300px] "
+            alt="Email"
+          /> */}
         </div>
         {/* <div className="absolute bottom-0 right-0 -z-10">
           <img
