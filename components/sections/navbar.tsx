@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -46,8 +46,28 @@ const routeList: RouteProps[] = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+
+    // Add the event listener
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <header className=" bg-transparent top-0 z-40 w-full ">
+    <header
+      className={`fixed top-0 z-40 w-full transition-all duration-300 ease-in-out ${
+        isScrolled ? " bg-primary-foreground shadow-lg" : "bg-transparent"
+      }`}
+    >
       <NavigationMenu className="mx-auto">
         <NavigationMenuList className="container h-14 px-4 w-screen flex justify-between ">
           <NavigationMenuItem className="font-bold  ">
