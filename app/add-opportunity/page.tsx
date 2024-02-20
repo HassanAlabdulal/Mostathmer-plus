@@ -20,8 +20,7 @@ type FormValues = {
 };
 
 export default function AddOpportunity() {
-  
-  // Initialize useForm hook for form handling
+  // Initialize useForm hook to manage form state and validation
   const {
     register,
     handleSubmit,
@@ -29,17 +28,49 @@ export default function AddOpportunity() {
     setValue,
   } = useForm<FormValues>();
 
-  const investmentType = [
-    "سكني", "تجاري", "صناعي", "زراعي"
-  ];
+  // Predefined lists for dropdowns
+  // Types of investment
+  const investmentType = ["سكني", "تجاري", "صناعي", "زراعي"];
 
+  // List of cities for investment location
   const cities = [
     "الرياض", "جدة", "مكة المكرمة", "المدينة المنورة", "الدمام", "الخبر",
     "الطائف", "تبوك", "القطيف", "خميس مشيط", "الأحساء", "حائل"
   ];
 
-  // Function to handle form submission
-  const onSubmit = (data: FormValues) => console.log(data);
+  const onSubmit = async (data: FormValues) => {
+    // Prepare FormData object if there are files to be uploaded
+    const formData = new FormData();
+    formData.append("opportunityTitle", data.opportunityTitle);
+    formData.append("detailedDescription", data.detailedDescription);
+    formData.append("investmentType", data.investmentType);
+    formData.append("projectValue", data.projectValue.toString());
+    formData.append("investmentLocation", data.investmentLocation);
+    formData.append("contactDetails", data.contactDetails);
+    if (data.attachments && data.attachments.length > 0) {
+      // Append each file to the form data. Adjust according to your API requirements.
+      Array.from(data.attachments).forEach(file => {
+        formData.append("attachments", file);
+      });
+    }
+
+    try {
+      const response = await fetch('https://your-backend-endpoint.com/api/opportunities', {
+        method: 'POST',
+        body: formData, // No headers included as FormData will set the `Content-Type` to `multipart/form-data` and include the boundary
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      // Handle response data here, such as showing a success message or redirecting
+      console.log(await response.json());
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      // Handle error here, such as showing an error message to the user
+    }
+  };
 
   return (
     <div className="flex flex-col justify-center min-h-screen py-12 sm:px-6 lg:px-8">
