@@ -82,7 +82,7 @@ export default function AddOpportunity() {
           {/* Basic Information Section */}
           <div>
             <label htmlFor="opportunityTitle">عنوان الفرصة</label>
-            <Input id="opportunityTitle" placeholder="بناء عمارة سكنية" {...register('opportunityTitle', { required: 'هذا الحقل مطلوب' })} />
+            <Input className="mr-0" id="opportunityTitle" placeholder="بناء عمارة سكنية" {...register('opportunityTitle', { required: 'هذا الحقل مطلوب' })} />
             {errors.opportunityTitle && <p className="text-red-500">{errors.opportunityTitle.message}</p>}
           </div>
 
@@ -110,38 +110,32 @@ export default function AddOpportunity() {
           </div>
 
 
-          <div className="flex items-end justify-start">
+          <div className="flex flex-col items-start justify-start">
             {/* Label for the Date Range Picker */}
             <label htmlFor="date" className="mb-2">
               المدة الزمنية:
             </label>
-            <div className="flex items-end mr-2">
-              {/* Date Range Picker Section */}
+            {/* Date Range Picker Section */}
+            <div>
               <DatePickerWithRange
-                // pass any additional props if needed
               />
             </div>
           </div>
 
 
-            {/* Project Value and Unit in the same row with the same height */}
-            <div className="flex items-center">
-
             {/* Project Value Input Section */}
             <div className="flex-1">
               <label htmlFor="projectValue" className="block">تكلفة المشروع</label>
-              <div className="flex items-center h-10">
+              <div className="items-center h-10">
                 <input 
                   id="projectValue" 
                   type="text" 
                   {...register('projectValue', { required: 'هذا الحقل مطلوب' })} 
-                  className="flex-1 border border-gray-300 rounded-md shadow-sm pr-2"
+                  className="flex-1 border border-gray-300 rounded-md shadow-sm pr-2 h-8"
                 />
-                <label className="ml-2 mr-1 border border-gray-300 rounded-md shadow-sm px-4">ريال سعودي</label>
+                <label className="ml-2 mr-1 border border-gray-300 rounded-md shadow-sm px-4 py-1">ريال </label>
               </div>
               {errors.projectValue && <p className="text-red-500">{errors.projectValue.message}</p>}
-            </div>
-
             </div>
 
 
