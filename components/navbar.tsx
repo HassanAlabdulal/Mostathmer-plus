@@ -95,9 +95,11 @@ export default function Navbar() {
                       key={label}
                       href={href}
                       onClick={() => setIsOpen(false)}
-                      className={`font-semibold text-lg ${buttonVariants({
-                        variant: "ghost",
-                      })}`}
+                      className={`font-semibold hover:text-xl text-lg ${buttonVariants(
+                        {
+                          variant: "ghost",
+                        }
+                      )}`}
                     >
                       {label}
                     </a>
@@ -111,14 +113,12 @@ export default function Navbar() {
           </div>
 
           {/* desktop */}
-          <nav className="hidden md:flex gap-2">
+          <nav className="hidden md:flex gap-6">
             {routeList.map((route: RouteProps, i) => (
               <a
                 href={route.href}
                 key={i}
-                className={`font-semibold text-lg ${buttonVariants({
-                  variant: "ghost",
-                })}`}
+                className=" hover:text-lg  transition-all duration-150"
               >
                 {route.label}
               </a>

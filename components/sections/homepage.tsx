@@ -39,7 +39,7 @@ export default function Homepage() {
               </div>
             </div>
             <h1 className="inline">
-              <span className="bg-gradient-to-b from-[#3cb468]/60 to-[#30a059] text-transparent bg-clip-text">
+              <span className="bg-gradient-to-b from-[#CFAA54]/60 to-[#fbdd47] text-transparent bg-clip-text">
                 مُسثمر بلس:{" "}
               </span>{" "}
               بوابتك لاستكشاف فرص الإستثمار في المملكة{" "}

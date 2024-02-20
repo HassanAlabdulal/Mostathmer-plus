@@ -23,7 +23,7 @@ export default function Learnmore() {
             data-aos="fade-up"
           >
             نجمع لك فرص الإستثمار في{" "}
-            <span className="bg-gradient-to-b from-[#3cb468]/60 to-[#30a059] text-transparent bg-clip-text">
+            <span className="bg-gradient-to-b from-[#bfa260]/60 to-[#CFAA54] text-transparent bg-clip-text">
               مكان واحد
             </span>
           </h2>
