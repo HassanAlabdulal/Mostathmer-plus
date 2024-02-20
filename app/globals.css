@@ -117,7 +117,7 @@ html {
 @media (max-width: 768px) {
   .shadow {
     top: 70px;
-    width: 90px;
+    width: 87px;
     height: 350px;
     filter: blur(60px);
   }
