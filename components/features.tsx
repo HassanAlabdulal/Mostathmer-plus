@@ -23,21 +23,21 @@ const features: FeaturesProps[] = [
     title: "زد فرصك وشارك استثمارك ",
     description:
       "تعال وجرب حظك! مع مُستثمر بلس تقدر تضيف استثمارك الخاص وتخلي العالم كله يطلع عليه. سواء كنت رائد أعمال فنان أو جديد، عرض استثماراتك صار أسهل من الآن.",
-    featuresImage: "/assets/home.svg",
+    featuresImage: "/assets/share.svg",
     dataAos: "fade-up",
   },
   {
     title: " وفّرنا لك كل التفاصيل اللي تحتاجها",
     description:
       " عجبتك الفرصة؟ عندنا لك كل التفاصيل! مُستثمر بلس يجيب لك كل المعلومات اللي تبغاها عن أي استثمار. ما يحتاج تدور وتحوس، كل شيء تبغاه تحصله عندنا.",
-    featuresImage: "/assets/home.svg",
+    featuresImage: "/assets/details.svg",
     dataAos: "fade-up",
   },
   {
     title: " فلترها بكيفك واختار زين",
     description:
       " كثرة الفرص ما تحيرك! مع مُستثمر بلس، نوفر لك تصفية الفرص بأسلوبك وبالطريقة اللي تناسبك. اختار القطاع، حدد المبلغ، واضرب لك لفة بين أحلى الفرص. ",
-    featuresImage: "/assets/home.svg",
+    featuresImage: "/assets/filter.svg",
     dataAos: "fade-up",
   },
   //   {
