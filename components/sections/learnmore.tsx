@@ -9,6 +9,7 @@ export default function Learnmore() {
   //       duration: 800,
   //     });
   //   }, []);
+
   return (
     <main
       id="learnmore"
