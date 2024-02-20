@@ -125,7 +125,7 @@ html {
   @keyframes shadow-slide {
     from {
       background: hsl(var(--primary) / 20%);
-      right: 190px;
+      right: 180px;
     }
     to {
       background: hsl(var(--primary) / 30%);
