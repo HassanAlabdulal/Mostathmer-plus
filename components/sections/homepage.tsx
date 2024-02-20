@@ -10,7 +10,7 @@ export default function Homepage() {
   };
   return (
     <main className="min-h-screen w-full">
-      <section className="container grid lg:grid-cols-2 place-items-center py-40 md:py-32 gap-10">
+      <section className="container grid lg:grid-cols-2 place-items-center py-40 md:py-44 gap-10">
         <div className="text-center space-y-6 flex justify-center items-center flex-col">
           <main className="text-2xl md:text-5xl font-bold md:leading-tight leading-normal tracking-tight">
             <div className="custom-shape-divider-top-1708454429">
