@@ -89,11 +89,11 @@ html {
 @keyframes shadow-slide {
   from {
     background: hsl(var(--primary) / 20%);
-    right: 460px;
+    right: 360px;
   }
   to {
     background: hsl(var(--primary) / 80%);
-    right: 160px;
+    right: 120px;
   }
 }
 
@@ -105,11 +105,11 @@ html {
   @keyframes shadow-slide {
     from {
       background: hsl(var(--primary) / 20%);
-      right: 460px;
+      right: 360px;
     }
     to {
       background: hsl(var(--primary) / 50%);
-      right: 160px;
+      right: 120px;
     }
   }
 }
