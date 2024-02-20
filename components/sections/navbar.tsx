@@ -50,7 +50,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      setIsScrolled(window.scrollY > 300);
     };
 
     // Add the event listener
@@ -64,8 +64,8 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 z-40 w-full transition-all duration-300 ease-in-out ${
-        isScrolled ? " bg-primary-foreground shadow-lg" : "bg-transparent"
+      className={`fixed top-0 z-40 py-2 w-full transition-all duration-300 ease-in-out ${
+        isScrolled ? " bg-[#ffffff] dark:bg-[#0a0a0b]" : "bg-transparent"
       }`}
     >
       <NavigationMenu className="mx-auto">
