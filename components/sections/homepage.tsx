@@ -63,7 +63,7 @@ export default function Homepage() {
 
         <div className="z-10">
           <Image
-            src="/assets/homepage.svg"
+            src="/assets/home.svg"
             width={600}
             height={600}
             className="max-md:w-[300px] max-md:h-[300px] "
