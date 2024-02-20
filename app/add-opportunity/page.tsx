@@ -136,9 +136,17 @@ export default function AddOpportunity() {
           {/* Attachments Section */}
           <div>
             <label htmlFor="attachments">المرفقات</label>
-            <Input id="attachments" type="file" {...register('attachments')} multiple />
+            <Input 
+              id="attachments" 
+              type="file" 
+              accept="image/*" // This ensures only images can be uploaded
+              {...register('attachments', { 
+                required: 'هذا الحقل مطلوب',
+              })} 
+            />
             {errors.attachments && <p className="text-red-500">{errors.attachments.message}</p>}
           </div>
+
 
           {/* Submit Button */}
           <div>
