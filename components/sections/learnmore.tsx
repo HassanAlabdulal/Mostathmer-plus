@@ -16,7 +16,7 @@ export default function Learnmore() {
       className="flex items-start justify-center min-h-screen"
     >
       <section className="pt-32 md:pt-36 ">
-        <div>
+        <div className="">
           <h2
             className="text-3xl md:text-6xl flex items-center justify-center gap-2 font-extrabold
              md:text-center md:leading-tight tracking-loose"
