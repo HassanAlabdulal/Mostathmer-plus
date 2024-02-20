@@ -14,7 +14,7 @@ export default function Homepage() {
         <div className="text-center space-y-6 flex justify-center items-center flex-col">
           <main className="text-2xl md:text-5xl font-bold md:leading-tight leading-normal tracking-tight  ">
             <h1 className="inline">
-              <span className="inline bg-gradient-to-r from-[#3cb468]  to-[#30a059] text-transparent bg-clip-text">
+              <span className="bg-gradient-to-b from-[#3cb468]/60 to-[#30a059] text-transparent bg-clip-text">
                 مُسثمر بلس:{" "}
               </span>{" "}
               بوابتك لاستكشاف فرص الإستثمار في المملكة{" "}

@@ -13,18 +13,18 @@ export default function Learnmore() {
   return (
     <main
       id="learnmore"
-      className="flex items-start justify-center min-h-screen bg-[#f9f9f9]"
+      className="flex items-start justify-center min-h-screen"
     >
       <section className="pt-32 md:pt-36 ">
         <div>
           <h2
-            className="text-3xl md:text-7xl flex items-center justify-center gap-2 font-extrabold
-             md:text-center md:leading-tight tracking-tight"
+            className="text-3xl md:text-6xl flex items-center justify-center gap-2 font-extrabold
+             md:text-center md:leading-tight tracking-loose"
             data-aos="fade-up"
           >
-            وداعاً للقلق، أهلاً
-            <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
-              بالراحة !
+            نجمع لك فرص الإستثمار في{" "}
+            <span className="bg-gradient-to-b from-[#3cb468]/60 to-[#30a059] text-transparent bg-clip-text">
+              مكان واحد
             </span>
           </h2>
         </div>
