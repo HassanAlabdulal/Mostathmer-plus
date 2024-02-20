@@ -29,9 +29,9 @@ export default function AddOpportunity() {
     setValue,
   } = useForm<FormValues>();
 
-  React.useEffect(() => {
-    register('investmentType', { required: 'هذا الحقل مطلوب' });
-  }, [register]);
+  const investmentType = [
+    "سكني", "تجاري", "صناعي", "زراعي"
+  ];
 
   const cities = [
     "الرياض", "جدة", "مكة المكرمة", "المدينة المنورة", "الدمام", "الخبر",
@@ -52,31 +52,32 @@ export default function AddOpportunity() {
           <div>
             <label htmlFor="opportunityTitle">عنوان الفرصة</label>
             <Input id="opportunityTitle" placeholder="بناء عمارة سكنية" {...register('opportunityTitle', { required: 'هذا الحقل مطلوب' })} />
-            {errors.opportunityTitle && <p>{errors.opportunityTitle.message}</p>}
+            {errors.opportunityTitle && <p className="text-red-500">{errors.opportunityTitle.message}</p>}
           </div>
 
           <div>
             <label htmlFor="detailedDescription">وصف تفصيلي</label>
             <Textarea className="resize-none" id="detailedDescription" placeholder=" عمارة سكنية مكونة من 6 طوابق و10 شقق" {...register('detailedDescription', { required: 'هذا الحقل مطلوب' })} />
-            {errors.detailedDescription && <p>{errors.detailedDescription.message}</p>}
+            {errors.detailedDescription && <p className="text-red-500">{errors.detailedDescription.message}</p>}
           </div>
 
-            {/* Investment Details Section */}
+          {/* Investment Type Section */}
           <div>
             <label htmlFor="investmentType">نوع الاستثمار :</label>
             <select
               id="investmentType"
               {...register('investmentType', { required: 'هذا الحقل مطلوب' })}
-              onChange={e => setValue('investmentType', e.target.value)}
-              className="mr-1 border border-gray-300 rounded-md shadow-sm"
+              className="border border-gray-300 rounded-md shadow-sm mr-1"
             >
+              <option value="">{/* The default option */}اختر</option>
               <option value="realEstate">عقاري</option>
               <option value="technology">تكنولوجي</option>
               <option value="industrial">صناعي</option>
-            
+              {/* Add more options as needed */}
             </select>
-            {errors.investmentType && <p>{errors.investmentType.message}</p>}
+            {errors.investmentType && <p className="text-red-500">{errors.investmentType.message}</p>}
           </div>
+
 
           <div className="flex items-end justify-start">
             {/* Label for the Date Range Picker */}
@@ -107,7 +108,7 @@ export default function AddOpportunity() {
                 />
                 <label className="ml-2 mr-1 border border-gray-300 rounded-md shadow-sm px-4">ريال سعودي</label>
               </div>
-              {errors.projectValue && <p>{errors.projectValue.message}</p>}
+              {errors.projectValue && <p className="text-red-500">{errors.projectValue.message}</p>}
             </div>
 
             </div>
@@ -122,21 +123,21 @@ export default function AddOpportunity() {
                 <option key={index} value={city}>{city}</option>
               ))}
             </select>
-            {errors.investmentLocation && <p>{errors.investmentLocation.message}</p>}
+            {errors.investmentLocation && <p className="text-red-500">{errors.investmentLocation.message}</p>}
           </div>
 
           {/* Contact Information Section */}
           <div>
             <label htmlFor="contactDetails">معلومات الاتصال</label>
             <Input id="contactDetails" placeholder="شارع الرياض - حي غرناطة - رقم الهاتف: 0559974554" {...register('contactDetails', { required: 'هذا الحقل مطلوب' })} />
-            {errors.contactDetails && <p>{errors.contactDetails.message}</p>}
+            {errors.contactDetails && <p className="text-red-500">{errors.contactDetails.message}</p>}
           </div>
 
           {/* Attachments Section */}
           <div>
             <label htmlFor="attachments">المرفقات</label>
             <Input id="attachments" type="file" {...register('attachments')} multiple />
-            {errors.attachments && <p>{errors.attachments.message}</p>}
+            {errors.attachments && <p className="text-red-500">{errors.attachments.message}</p>}
           </div>
 
           {/* Submit Button */}
