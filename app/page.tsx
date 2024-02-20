@@ -6,8 +6,8 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    // <section className="min-h-screen w-full background">
-    <main className="relative poppins  md:px-[9rem]">
+    // <section className="min-h-screen max-w-full background">
+    <main className=" sticky poppins  md:px-[9rem]">
       <Navbar />
       <div className="px-4 flex flex-col gap-[7.69rem]">
         <Homepage />

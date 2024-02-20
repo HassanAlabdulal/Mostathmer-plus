@@ -66,6 +66,9 @@
   box-sizing: border-box;
   direction: rtl;
   font-family: "Rubik", sans-serif;
+}
+
+html {
   scroll-behavior: smooth;
 }
 
@@ -122,7 +125,7 @@
   @keyframes shadow-slide {
     from {
       background: hsl(var(--primary) / 20%);
-      right: 280px;
+      right: 190px;
     }
     to {
       background: hsl(var(--primary) / 30%);
