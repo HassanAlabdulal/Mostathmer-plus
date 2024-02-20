@@ -134,22 +134,24 @@ html {
   }
 }
 
-.custom-shape-divider-top-1708454496 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-}
+@media (max-width: 768px) {
+  .custom-shape-divider-top-1708454496 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+  }
 
-.custom-shape-divider-top-1708454496 svg {
-  position: relative;
-  display: block;
-  width: calc(189% + 1.3px);
-  height: 218px;
-}
+  .custom-shape-divider-top-1708454496 svg {
+    position: relative;
+    display: block;
+    width: calc(189% + 1.3px);
+    height: 180px;
+  }
 
-.custom-shape-divider-top-1708454496 .shape-fill {
-  fill: #3cb468;
+  .custom-shape-divider-top-1708454496 .shape-fill {
+    fill: #3cb468;
+  }
 }

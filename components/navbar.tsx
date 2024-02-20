@@ -53,7 +53,7 @@ export default function Navbar() {
           <NavigationMenuItem className="font-bold  ">
             <a
               href="/"
-              className="scroll-m-20 text-2xl max-sm:mr-2 font-bold tracking-tight 
+              className="scroll-m-20 text-2xl max-sm:mr-4 font-bold tracking-tight 
                     lg:text-3xl rounded-xl flex justify-center items-center gap-2"
             >
               <Image
