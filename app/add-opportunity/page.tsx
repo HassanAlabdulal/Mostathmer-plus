@@ -2,20 +2,32 @@
 
 import React from "react";
 import { useForm } from "react-hook-form";
-import { SubmitHandler } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Select } from "@/components/ui/select";
+import { format } from "date-fns"
+import { Calendar as CalendarIcon } from "lucide-react"
+ 
+import { cn } from "@/lib/utils"
+import { Calendar } from "@/components/ui/calendar"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
+
+
+type DateRange = {
+  from: Date;
+  to: Date;
+};
 
 // Define the form fields and their types
 type FormValues = {
   opportunityTitle: string;
   detailedDescription: string;
   investmentType: string;
-  investmentTimeUnit: string; 
-  investmentTimeValue: number;
-  projectValueUnit: string;
+  dateRange: DateRange;
   projectValue: number;
   investmentLocation: string;
   contactDetails: string;
@@ -23,13 +35,23 @@ type FormValues = {
 };
 
 export default function AddOpportunity() {
+  
   // Initialize useForm hook for form handling
   const {
     register,
     handleSubmit,
     formState: { errors },
     setValue,
+    watch
   } = useForm<FormValues>();
+
+    // Watch for changes to dateRange in the form
+    const dateRangeValue = watch('dateRange');
+  
+    // Function to handle date range changes
+    const handleDateRangeChange = (range: DateRange) => {
+      setValue('dateRange', range);
+    };
 
   React.useEffect(() => {
     register('investmentType', { required: 'هذا الحقل مطلوب' });
@@ -48,29 +70,29 @@ export default function AddOpportunity() {
       <div className="sm:mx-auto sm:w-full sm:max-w-2xl">
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 p-8 rounded shadow">
           {/* Page title */}
-          <h2 className="text-lg font-semibold">إضافة فرصة استثمارية جديدة</h2>
+          <h2 className="text-lg font-semibold text-center">إضافة فرصة استثمارية جديدة</h2>
 
           {/* Basic Information Section */}
           <div>
             <label htmlFor="opportunityTitle">عنوان الفرصة</label>
-            <Input id="opportunityTitle" {...register('opportunityTitle', { required: 'هذا الحقل مطلوب' })} />
+            <Input id="opportunityTitle" placeholder="بناء عمارة سكنية" {...register('opportunityTitle', { required: 'هذا الحقل مطلوب' })} />
             {errors.opportunityTitle && <p>{errors.opportunityTitle.message}</p>}
           </div>
 
           <div>
             <label htmlFor="detailedDescription">وصف تفصيلي</label>
-            <Textarea className="resize-none" id="detailedDescription" {...register('detailedDescription', { required: 'هذا الحقل مطلوب' })} />
+            <Textarea className="resize-none" id="detailedDescription" placeholder=" عمارة سكنية مكونة من 6 طوابق و10 شقق" {...register('detailedDescription', { required: 'هذا الحقل مطلوب' })} />
             {errors.detailedDescription && <p>{errors.detailedDescription.message}</p>}
           </div>
 
             {/* Investment Details Section */}
           <div>
-            <label htmlFor="investmentType">نوع الاستثمار</label>
+            <label htmlFor="investmentType">نوع الاستثمار :</label>
             <select
               id="investmentType"
               {...register('investmentType', { required: 'هذا الحقل مطلوب' })}
               onChange={e => setValue('investmentType', e.target.value)}
-              className="mr-5"
+              className="mr-1 border border-gray-300 rounded-md shadow-sm"
             >
               <option value="realEstate">عقاري</option>
               <option value="technology">تكنولوجي</option>
@@ -81,41 +103,18 @@ export default function AddOpportunity() {
           </div>
 
           <div className="flex items-end">
-            {/* Investment Time Value Section */}
-            <div className="flex-1">
-              <label htmlFor="investmentTimeValue">المدة الزمنية</label>
-              <select
-                id="investmentTimeValue"
-                {...register('investmentTimeValue', { required: 'هذا الحقل مطلوب' })}
-                className="form-select form-select-lg mb-3 appearance-none
-                           block w-full px-4 py-2 text-xl font-normal 
-                           bg-clip-padding bg-no-repeat border border-solid border-gray-300
-                           rounded transition ease-in-out m-0
-                           focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-              >
-                {Array.from({ length: 12 }, (_, index) => (
-                  <option key={index} value={index + 1}>{index + 1}</option>
-                ))}
-              </select>
-              {errors.investmentTimeValue && <p>{errors.investmentTimeValue.message}</p>}
-            </div>
 
-            {/* Investment Time Unit Section */}
-            <div className="flex-1 ml-3">
-              <select
-                id="investmentTimeUnit"
-                {...register('investmentTimeUnit', { required: 'هذا الحقل مطلوب' })}
-                className="form-select form-select-lg mb-3 mr-1
-                           block px-4 py-2 text-xl font-normal 
-                            bg-clip-padding bg-no-repeat border border-solid border-gray-300
-                           rounded transition ease-in-out m-0
-                           focus:bg-white focus:border-blue-600 focus:outline-none"
-              >
-                <option value="months">شهور</option>
-                <option value="years">سنوات</option>
-              </select>
-              {errors.investmentTimeUnit && <p>{errors.investmentTimeUnit.message}</p>}
-            </div>
+          {/* Date Range Picker Section */}
+          <div>
+          <label htmlFor="dateRange">المدة الزمنية</label>
+          <DatePickerWithRange
+            className="my-2"
+            dateRange={dateRangeValue}
+            onDateRangeChange={handleDateRangeChange}
+          />
+          {errors.dateRange && <p>{errors.dateRange.message}</p>}
+         </div>
+        
           </div>
 
             {/* Project Value and Unit in the same row with the same height */}
@@ -123,35 +122,26 @@ export default function AddOpportunity() {
 
             {/* Project Value Input Section */}
             <div className="flex-1">
-              <label htmlFor="projectValue">قيمة المشروع</label>
-              <input 
-                id="projectValue" 
-                type="text" 
-                {...register('projectValue', { required: 'هذا الحقل مطلوب' })} 
-                className="w-full h-10 border border-gray-300 rounded-md shadow-sm"
-              />
+              <label htmlFor="projectValue" className="block">تكلفة المشروع</label>
+              <div className="flex items-center h-10">
+                <input 
+                  id="projectValue" 
+                  type="text" 
+                  {...register('projectValue', { required: 'هذا الحقل مطلوب' })} 
+                  className="flex-1 border border-gray-300 rounded-md shadow-sm pr-2"
+                />
+                <label className="ml-2 mr-1 border border-gray-300 rounded-md shadow-sm px-4">ريال سعودي</label>
+              </div>
               {errors.projectValue && <p>{errors.projectValue.message}</p>}
-            </div>
-         
-            {/* Project Value Unit Section */}
-            <div className="flex-1">
-              <select 
-                id="projectValueUnit" 
-                {...register('projectValueUnit', { required: 'هذا الحقل مطلوب' })} 
-                className="mr-1 mt-6 h-10 border border-gray-300 rounded-md shadow-sm"
-              >
-                <option value="thousand">ألف</option>
-                <option value="million">مليون</option>
-              </select>
-              {errors.projectValueUnit && <p>{errors.projectValueUnit.message}</p>}
             </div>
 
             </div>
+
 
           {/* Investment Location Section */}
           <div>
-            <label htmlFor="investmentLocation">موقع الاستثمار</label>
-            <select id="investmentLocation" {...register('investmentLocation', { required: 'هذا الحقل مطلوب' })}>
+            <label htmlFor="investmentLocation">موقع الاستثمار: </label>
+            <select id="investmentLocation" className="border border-gray-300 rounded-md shadow-sm" {...register('investmentLocation', { required: 'هذا الحقل مطلوب' })}>
               <option value="">اختر مدينة...</option>
               {cities.map((city, index) => (
                 <option key={index} value={city}>{city}</option>
@@ -163,7 +153,7 @@ export default function AddOpportunity() {
           {/* Contact Information Section */}
           <div>
             <label htmlFor="contactDetails">معلومات الاتصال</label>
-            <Input id="contactDetails" {...register('contactDetails', { required: 'هذا الحقل مطلوب' })} />
+            <Input id="contactDetails" placeholder="شارع الرياض - حي غرناطة - رقم الهاتف: 0559974554" {...register('contactDetails', { required: 'هذا الحقل مطلوب' })} />
             {errors.contactDetails && <p>{errors.contactDetails.message}</p>}
           </div>
 
