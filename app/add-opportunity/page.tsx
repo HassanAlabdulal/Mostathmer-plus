@@ -5,29 +5,14 @@ import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { format } from "date-fns"
-import { Calendar as CalendarIcon } from "lucide-react"
- 
-import { cn } from "@/lib/utils"
-import { Calendar } from "@/components/ui/calendar"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover"
+import { DatePickerWithRange } from './date-picker';
 
-
-type DateRange = {
-  from: Date;
-  to: Date;
-};
 
 // Define the form fields and their types
 type FormValues = {
   opportunityTitle: string;
   detailedDescription: string;
   investmentType: string;
-  dateRange: DateRange;
   projectValue: number;
   investmentLocation: string;
   contactDetails: string;
@@ -42,16 +27,7 @@ export default function AddOpportunity() {
     handleSubmit,
     formState: { errors },
     setValue,
-    watch
   } = useForm<FormValues>();
-
-    // Watch for changes to dateRange in the form
-    const dateRangeValue = watch('dateRange');
-  
-    // Function to handle date range changes
-    const handleDateRangeChange = (range: DateRange) => {
-      setValue('dateRange', range);
-    };
 
   React.useEffect(() => {
     register('investmentType', { required: 'هذا الحقل مطلوب' });
@@ -102,20 +78,19 @@ export default function AddOpportunity() {
             {errors.investmentType && <p>{errors.investmentType.message}</p>}
           </div>
 
-          <div className="flex items-end">
-
-          {/* Date Range Picker Section */}
-          <div>
-          <label htmlFor="dateRange">المدة الزمنية</label>
-          <DatePickerWithRange
-            className="my-2"
-            dateRange={dateRangeValue}
-            onDateRangeChange={handleDateRangeChange}
-          />
-          {errors.dateRange && <p>{errors.dateRange.message}</p>}
-         </div>
-        
+          <div className="flex items-end justify-start">
+            {/* Label for the Date Range Picker */}
+            <label htmlFor="date" className="mb-2">
+              المدة الزمنية:
+            </label>
+            <div className="flex items-end mr-2">
+              {/* Date Range Picker Section */}
+              <DatePickerWithRange
+                // pass any additional props if needed
+              />
+            </div>
           </div>
+
 
             {/* Project Value and Unit in the same row with the same height */}
             <div className="flex items-center">
