@@ -15,7 +15,7 @@ export default function Learnmore() {
       id="learnmore"
       className="flex items-start justify-center min-h-screen"
     >
-      <section className="pt-24 md:pt-32 ">
+      <section className="pt-40 md:pt-32 ">
         <div>
           <h1
             data-aos="fade-up"
