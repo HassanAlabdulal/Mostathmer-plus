@@ -87,7 +87,7 @@ export const FAQ = () => {
             data-aos="fade-up"
           >
             الأسئلة
-            <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
+            <span className="bg-gradient-to-b from-[#bfa260]/60 to-[#CFAA54] text-transparent bg-clip-text">
               الشائعة
             </span>
           </h2>
@@ -109,7 +109,7 @@ export const FAQ = () => {
           عندك أسئلة زيادة؟
           <a
             href="#"
-            className="text-primary transition-all border-primary hover:border-b-2"
+            className="text-[#bfa260] transition-all border-[#bfa260] hover:border-b-2"
           >
             تواصل معنا
           </a>
