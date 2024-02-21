@@ -1,6 +1,6 @@
-// import CategoryFilter from "@/components/shared/CategoryFilter";
-// import Collection from "@/components/shared/Collection";
-// import Search from "@/components/shared/Search";
+import CategoryFilter from "@/components/CategoryFilter";
+import Collection from "@/components/Collection";
+import Search from "@/components/search";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
