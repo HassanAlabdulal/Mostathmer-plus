@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Card,
   CardContent,
@@ -10,28 +10,48 @@ import {
 } from "@/components/ui/card";
 
 // Mock data for the opportunity
-const opportunityData = {
-  opportunityTitle: 'بناء عمارة سكنية فاخرة',
-  detailedDescription: 'عمارة سكنية مكونة من 6 طوابق و30 شقة',
-  investmentType: 'عقاري',
-  projectValue: 7500000,
-  projectDate: '14 ديسمبر 2023 - 14 ديسمبر 2025',
-  investmentLocation: 'الرياض',
-  contactDetails: 'الاسم: محمد السالم | الهاتف: 0559094843 | البريد الإلكتروني: mohammed@gmail.com',
-  projectImageUrl: '/assets/photo.jpg',
-};
-
 export default function ShowOpportunity() {
-  const {
-    opportunityTitle,
-    detailedDescription,
-    investmentType,
-    projectValue,
-    projectDate,
-    investmentLocation,
-    contactDetails,
-    projectImageUrl,
-  } = opportunityData;
+    // Initialize state with an empty object or with initial values
+    const [opportunityData, setOpportunityData] = useState({
+      opportunityTitle: '',
+      detailedDescription: '',
+      investmentType: '',
+      projectValue: 0,
+      projectDate: '',
+      investmentLocation: '',
+      contactDetails: '',
+      projectImageUrl: '',
+    });
+  
+    useEffect(() => {
+      // This is where you would fetch data from your database
+      // For now, I'm using a mock object to simulate fetched data
+      const mockDataFromDatabase = {
+        opportunityTitle: 'بناء عمارة سكنية فاخرة',
+        detailedDescription: 'عمارة سكنية مكونة من 6 طوابق و30 شقة',
+        investmentType: 'عقاري',
+        projectValue: 7500000,
+        projectDate: '14 ديسمبر 2023 - 14 ديسمبر 2025',
+        investmentLocation: 'الرياض',
+        contactDetails: 'الاسم: محمد السالم | الهاتف: 0559094843 | البريد الإلكتروني: mohammed@gmail.com',
+        projectImageUrl: '/assets/photo.jpg',
+      };
+  
+      // Simulate setting state with data fetched from a database
+      setOpportunityData(mockDataFromDatabase);
+    }, []);
+  
+    // Destructure the opportunityData object for easier access to its properties
+    const {
+      opportunityTitle,
+      detailedDescription,
+      investmentType,
+      projectValue,
+      projectDate,
+      investmentLocation,
+      contactDetails,
+      projectImageUrl,
+    } = opportunityData;
 
   // Format project value as currency
   const formattedProjectValue = new Intl.NumberFormat('ar-SA', { style: 'currency', currency: 'SAR' }).format(projectValue);
