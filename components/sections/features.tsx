@@ -62,7 +62,7 @@ export default function Features() {
             <Card
               data-aos={dataAos}
               key={title}
-              className="bg-[#fafafa] hover:bg-[#f7f7f7] dark:bg-[#121212] border-0 dark:hover:bg-[#27272a] transition-all max-w-[470px] duration-400 shadow-md  rounded-[3rem]"
+              className="bg-[#fafafa] hover:bg-[#f1f1f1] dark:bg-[#121212] border-0 dark:hover:bg-[#27272a] transition-all max-w-[470px] duration-400 shadow-md  rounded-[3rem]"
             >
               <CardHeader className="mt-4">
                 <CardTitle className=" text-center ">{title}</CardTitle>

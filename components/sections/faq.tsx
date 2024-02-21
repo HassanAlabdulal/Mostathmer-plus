@@ -96,7 +96,7 @@ export const FAQ = () => {
         <Accordion type="single" collapsible className="w-full AccordionRoot">
           {FAQList.map(({ question, answer, value }: FAQProps) => (
             <AccordionItem
-              className="hover:bg-[#eae9e9] dark:hover:bg-[#262525]"
+              className="hover:bg-[#f1f1f1] dark:hover:bg-[#262525]"
               key={value}
               value={value}
               data-aos="fade-up"
