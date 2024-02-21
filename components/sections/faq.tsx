@@ -105,11 +105,11 @@ export const FAQ = () => {
           ))}
         </Accordion>
 
-        <h3 className="font-medium mt-4 flex gap-1" data-aos="fade-up">
+        <h3 className="font-medium mt-4 flex gap-2 " data-aos="fade-up">
           عندك أسئلة زيادة؟
           <a
             href="#"
-            className="text-[#bfa260] transition-all border-[#bfa260] hover:border-b-2"
+            className="text-[#bfa260] transition-all cursor-pointer border-[#bfa260] hover:border-b-2"
           >
             تواصل معنا
           </a>
