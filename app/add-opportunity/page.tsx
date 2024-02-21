@@ -128,6 +128,7 @@ export default function AddOpportunity() {
               <label htmlFor="projectValue" className="block">تكلفة المشروع</label>
               <div className="items-center h-10">
                 <input 
+                  placeholder="1,000,000"
                   id="projectValue" 
                   type="text" 
                   {...register('projectValue', { required: 'هذا الحقل مطلوب' })} 
