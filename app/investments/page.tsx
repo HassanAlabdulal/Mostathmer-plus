@@ -9,15 +9,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-import Aos from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
-
 interface FeaturesProps {
   title: string;
   description: string;
   featuresImage: string;
-  dataAos: string;
 }
 
 const features: FeaturesProps[] = [
@@ -26,21 +21,18 @@ const features: FeaturesProps[] = [
     description:
       "تعال وجرب حظك! مع مُستثمر بلس تقدر تضيف استثمارك الخاص وتخلي العالم كله يطلع عليه. سواء كنت رائد أعمال فنان أو جديد، عرض استثماراتك صار أسهل من الآن.",
     featuresImage: "/assets/share.svg",
-    dataAos: "fade-up",
   },
   {
     title: " وفّرنا لك كل التفاصيل اللي تحتاجها",
     description:
       " عجبتك الفرصة؟ عندنا لك كل التفاصيل! مُستثمر بلس يجيب لك كل المعلومات اللي تبغاها عن أي استثمار. ما يحتاج تدور وتحوس، كل شيء تبغاه تحصله عندنا.",
     featuresImage: "/assets/details.svg",
-    dataAos: "fade-up",
   },
   {
     title: " فلترها بكيفك واختار زين",
     description:
       " كثرة الفرص ما تحيرك! مع مُستثمر بلس، نوفر لك تصفية الفرص بأسلوبك وبالطريقة اللي تناسبك. اختار القطاع، حدد المبلغ، واضرب لك لفة بين أحلى الفرص. ",
     featuresImage: "/assets/filter.svg",
-    dataAos: "fade-up",
   },
   //   {
   //     title: " راقب الصرف لحظة بلحظة",
@@ -82,14 +74,8 @@ export default function investments() {
           <section id="features" className="container py-16 space-y-8">
             <div className="grid md:grid-cols-3 lg:grid-cols-3 sm:grid-cols-1 gap-8">
               {features.map(
-                ({
-                  title,
-                  description,
-                  featuresImage,
-                  dataAos,
-                }: FeaturesProps) => (
+                ({ title, description, featuresImage }: FeaturesProps) => (
                   <Card
-                    data-aos={dataAos}
                     key={title}
                     className="bg-[#fafafa] hover:bg-[#f1f1f1] dark:bg-[#121212] border-0 dark:hover:bg-[#27272a] transition-all max-w-[470px] duration-400 shadow-md  rounded-[3rem]"
                   >
