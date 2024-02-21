@@ -1,7 +1,7 @@
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-import Features from "../features";
+import Features from "./features";
 
 export default function Learnmore() {
   useEffect(() => {
