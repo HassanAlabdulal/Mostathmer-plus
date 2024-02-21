@@ -1,18 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { useRouter, useSearchParams } from "next/navigation";
 
-const Search = ({
-  placeholder = "Search title...",
-}: {
-  placeholder?: string;
-}) => {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-
+{
   //   useEffect(() => {
   //     const delayDebounceFn = setTimeout(() => {
   //       let newUrl = "";
@@ -39,6 +31,6 @@ const Search = ({
       />
     </div>
   );
-};
+}
 
 export default Search;
