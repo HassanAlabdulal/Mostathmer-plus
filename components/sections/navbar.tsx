@@ -35,7 +35,7 @@ const routeList: RouteProps[] = [
     label: "الإستثمارات",
   },
   {
-    href: "/add-opportunity",
+    href: "/",
     label: "إضافة استثمار",
   },
   //   {
