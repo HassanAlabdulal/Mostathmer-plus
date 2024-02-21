@@ -89,7 +89,7 @@ export default function AddOpportunity() {
       <div className="sm:mx-auto sm:w-full sm:max-w-2xl">
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="space-y-6 p-8 rounded shadow"
+          className="space-y-6 p-8 rounded"
         >
           {/* Page title */}
           <h2 className="text-lg font-semibold text-center">
