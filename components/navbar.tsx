@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -14,9 +14,9 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-import { Button, buttonVariants } from "./ui/button";
+import { Button, buttonVariants } from "../ui/button";
 import { Menu } from "lucide-react";
-import ModeToggle from "./mode-toggle";
+import ModeToggle from "../mode-toggle";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -46,14 +46,34 @@ const routeList: RouteProps[] = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+
+    // Add the event listener
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <header className="sticky border-b-[1px] top-0 z-40 w-full bg-white dark:border-b-slate-700 dark:bg-background">
+    <header
+      className={`fixed top-0 z-40 py-2 w-full transition-all duration-300 ease-in-out ${
+        isScrolled ? " bg-[#ffffff] dark:bg-[#0a0a0b]" : "bg-transparent"
+      }`}
+    >
       <NavigationMenu className="mx-auto">
         <NavigationMenuList className="container h-14 px-4 w-screen flex justify-between ">
           <NavigationMenuItem className="font-bold  ">
             <a
               href="/"
-              className="scroll-m-20 text-2xl font-bold tracking-tight 
+              className="scroll-m-20 text-2xl max-sm:mr-4 font-bold tracking-tight 
                     lg:text-3xl rounded-xl flex justify-center items-center gap-2"
             >
               <Image
@@ -95,15 +115,17 @@ export default function Navbar() {
                       key={label}
                       href={href}
                       onClick={() => setIsOpen(false)}
-                      className={`font-semibold text-lg ${buttonVariants({
-                        variant: "ghost",
-                      })}`}
+                      className={`font-semibold hover:text-xl text-lg ${buttonVariants(
+                        {
+                          variant: "ghost",
+                        }
+                      )}`}
                     >
                       {label}
                     </a>
                   ))}
                   <Button asChild>
-                    <Link href="/sign-in"> تسجيل الدخول</Link>
+                    <Link href="/"> تسجيل الدخول</Link>
                   </Button>
                 </nav>
               </SheetContent>
@@ -111,14 +133,12 @@ export default function Navbar() {
           </div>
 
           {/* desktop */}
-          <nav className="hidden md:flex gap-2">
+          <nav className="hidden md:flex gap-6">
             {routeList.map((route: RouteProps, i) => (
               <a
                 href={route.href}
                 key={i}
-                className={`font-semibold text-lg ${buttonVariants({
-                  variant: "ghost",
-                })}`}
+                className=" hover:text-lg transition-all duration-150"
               >
                 {route.label}
               </a>
