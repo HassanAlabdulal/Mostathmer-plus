@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { DatePickerWithRange } from "@/components/date-picker";
+import { IsAuth, AddNewOpportunity } from "./actions";
 
 // Define the form fields and their types
 type FormValues = {
@@ -64,20 +65,35 @@ export default function AddOpportunity() {
     }
 
     try {
-      const response = await fetch(
-        "https://your-backend-endpoint.com/api/opportunities",
-        {
-          method: "POST",
-          body: formData, // No headers included as FormData will set the `Content-Type` to `multipart/form-data` and include the boundary
-        }
-      );
+      // const response = await fetch(
+      //   "https://your-backend-endpoint.com/api/opportunities",
+      //   {
+      //     method: "POST",
+      //     body: formData, // No headers included as FormData will set the `Content-Type` to `multipart/form-data` and include the boundary
+      //   }
+      // );
 
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
+      await AddNewOpportunity({
+        Coast: formData.get("projectValue")?.toString() || "",
+        Description: formData.get("detailedDescription")?.toString() || "",
+        Contact: formData.get("contactDetails")?.toString() || "",
+        Location: formData.get("investmentLocation")?.toString() || "",
+        Title: formData.get("opportunityTitle")?.toString() || "",
+        Type: formData.get("investmentType")?.toString() || "",
+      });
+
+      if (!(await IsAuth())) {
+        throw new Error("Not Auth");
       }
+      // if (!response.ok) {
+      //   throw new Error("Network response was not ok");
+      // }
+      // if (!response.ok) {
+      //   throw new Error("Network response was not ok");
+      // }
 
       // Handle response data here, such as showing a success message or redirecting
-      console.log(await response.json());
+      // console.log(await response.json());
     } catch (error) {
       console.error("Error submitting form:", error);
       // Handle error here, such as showing an error message to the user
