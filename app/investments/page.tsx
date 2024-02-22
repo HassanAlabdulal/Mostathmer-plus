@@ -182,7 +182,7 @@ export default function Investments() {
                     className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
                     key={key}
                   >
-                    <a href="#">
+                    <a href="/show-opportunity">
                       <img
                         className="rounded-t-lg"
                         src="/assets/photo.png"
@@ -195,9 +195,22 @@ export default function Investments() {
                           {title}
                         </CardHeader>
                       </a>
-                      <CardDescription className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                      <CardDescription className="mb-3 font-normal text-muted-foreground">
                         {investmentLocation}
                         {investmentType}
+                        {/* <div className="flex flex-wrap justify-center gap-4">
+                          {serviceList.map((service: string) => (
+                            <div key={service}>
+                              <Badge
+                                data-aos="fade-up"
+                                variant="secondary"
+                                className="md:text-md text-sm bg-[#d0b880] hover:bg-[#d0b880]/90"
+                              >
+                                {service}
+                              </Badge>
+                            </div>
+                          ))}
+                        </div> */}
                       </CardDescription>
                       <Button asChild>
                         <Link href="/show-opportunity">
