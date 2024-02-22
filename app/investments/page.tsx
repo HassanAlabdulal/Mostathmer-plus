@@ -174,7 +174,8 @@ export default function Investments() {
                   key,
                 }) => (
                   <Card
-                    className="max-w-sm bg-[#fafafa] border border-gray-200 rounded-xl shadow dark:bg-gray-800 dark:border-gray-700"
+                    className="max-w-sm bg-[#fafafa] border border-gray-200 rounded-xl shadow dark:bg-[#121212]
+                     dark:border-gray-700 transition-all duration-300 hover:scale-105"
                     key={key}
                   >
                     <Link href="/show-opportunity">
@@ -185,7 +186,7 @@ export default function Investments() {
                       />
                     </Link>
                     <CardHeader className="p-5 flex flex-col justify-center items-center">
-                      <CardDescription className="mb-4 text-xl text-center font-bold tracking-tight text-gray-900 dark:text-white">
+                      <CardDescription className="mb-4 text-xl text-center font-semibold tracking-tight text-gray-900 dark:text-white">
                         {title}
                       </CardDescription>
                       <CardContent className="mb-8 font-normal text-muted-foreground">
