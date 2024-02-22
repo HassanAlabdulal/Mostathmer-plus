@@ -1,3 +1,6 @@
+"use client";
+
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
@@ -9,42 +12,72 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-interface FeaturesProps {
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
+interface InvestmentsProps {
   title: string;
-  description: string;
-  featuresImage: string;
+  investmentLocation: string;
+  investmentImage: string;
+  investmentType: string;
 }
 
-const features: FeaturesProps[] = [
+const investments: InvestmentsProps[] = [
   {
     title: "زد فرصك وشارك استثمارك ",
-    description:
-      "تعال وجرب حظك! مع مُستثمر بلس تقدر تضيف استثمارك الخاص وتخلي العالم كله يطلع عليه. سواء كنت رائد أعمال فنان أو جديد، عرض استثماراتك صار أسهل من الآن.",
-    featuresImage: "/assets/share.svg",
+    investmentLocation: " الدمام",
+    investmentImage: "/assets/share.svg",
+    investmentType: "تكنولوجي",
   },
   {
     title: " وفّرنا لك كل التفاصيل اللي تحتاجها",
-    description:
-      " عجبتك الفرصة؟ عندنا لك كل التفاصيل! مُستثمر بلس يجيب لك كل المعلومات اللي تبغاها عن أي استثمار. ما يحتاج تدور وتحوس، كل شيء تبغاه تحصله عندنا.",
-    featuresImage: "/assets/details.svg",
+    investmentLocation: " الرياض",
+    investmentImage: "/assets/details.svg",
+    investmentType: "عقاري",
   },
   {
     title: " فلترها بكيفك واختار زين",
-    description:
-      " كثرة الفرص ما تحيرك! مع مُستثمر بلس، نوفر لك تصفية الفرص بأسلوبك وبالطريقة اللي تناسبك. اختار القطاع، حدد المبلغ، واضرب لك لفة بين أحلى الفرص. ",
-    featuresImage: "/assets/filter.svg",
+    investmentLocation: " جدة",
+    investmentImage: "/assets/filter.svg",
+    investmentType: "عقاري",
   },
   //   {
   //     title: " راقب الصرف لحظة بلحظة",
-  //     description: " اعرف قيمة ريالك حول العالم! بسرعة وسهولة. ",
-  //     featuresImage: "/assets/home.svg",
+  //     investmentLocation: " اعرف قيمة ريالك حول العالم! بسرعة وسهولة. ",
+  //     investmentImage: "/assets/home.svg",
   //     dataAos: "fade-up",
   //   },
 ];
-export default function investments() {
+
+export default function Investments() {
+  // States for managing the search query, location, and investment type
+  const [searchQuery, setSearchQuery] = useState("");
+  const [locationFilter, setLocationFilter] = useState("");
+  const [typeFilter, setTypeFilter] = useState("");
+
+  // Debugging statement to check the current filter states
+  console.log({ searchQuery, locationFilter, typeFilter });
+
+  // Function to filter investments based on search query, location, and type
+  const filteredInvestments = investments.filter(
+    (investment) =>
+      investment.title.toLowerCase().includes(searchQuery.toLowerCase()) &&
+      (locationFilter === "all" ||
+        locationFilter === "" ||
+        investment.investmentLocation.trim() === locationFilter.trim()) &&
+      (typeFilter === "all" ||
+        typeFilter === "" ||
+        investment.investmentType === typeFilter)
+  );
+
   return (
     <>
-      <main className="min-h-screen w-full flex justify-center items-start mt-36 ">
+      <main className="min-h-screen w-full flex justify-center items-start mt-36">
         <section className="flex flex-col justify-center items-center gap-8 md:gap-12">
           <h2 className="md:text-7xl font-bold md:leading-relaxed leading-normal tracking-tight text-3xl text-center">
             فرص{" "}
@@ -53,8 +86,25 @@ export default function investments() {
             </span>
           </h2>
 
-          <div className="flex w-full flex-col gap-5 md:flex-row">
-            <div className="flex-center min-h-[54px] w-full overflow-hidden rounded-full bg-grey-50 px-4 py-2">
+          <div className="flex min-w-1/2 justify-center items-center flex-col gap-5 md:flex-row">
+            {/* Location Filter */}
+            <Select
+              onValueChange={(value) => setLocationFilter(value)}
+              defaultValue=""
+            >
+              <SelectTrigger className="w-[280px] border-2 px-4 py-5 rounded-full dark:bg-[#121212]">
+                <SelectValue placeholder="الموقع" />
+              </SelectTrigger>
+              <SelectContent>
+                {/* Dynamically generate SelectItem based on your data */}
+                <SelectItem value="all">الكل</SelectItem>
+                <SelectItem value="الرياض">الرياض</SelectItem>
+                <SelectItem value="جدة">جدة</SelectItem>
+                <SelectItem value="الدمام">الدمام</SelectItem>
+              </SelectContent>
+            </Select>
+
+            <div className="flex items-center justify-center  w-1/3 overflow-hidden rounded-full border-2 dark:bg-[#121212] px-4 py-1">
               <Image
                 src="/assets/search.svg"
                 alt="search"
@@ -63,18 +113,39 @@ export default function investments() {
               />
               <Input
                 type="text"
-                placeholder="d"
-                // onChange={(e) => setQuery(e.target.value)}
-                className="p-regular-16 border-0 bg-grey-50 outline-offset-0 placeholder:text-grey-500 focus:border-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+                placeholder="بحث..."
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="p-regular-16 border-0  dark:bg-[#121212] outline-offset-0 placeholder:text-grey-500 focus:border-0 focus-visible:ring-0 focus-visible:ring-offset-0"
               />
             </div>
-            {/* <CategoryFilter /> */}
+            {/* Investment Type Filter using shadcn Select */}
+            <Select
+              onValueChange={(value) => setTypeFilter(value)}
+              defaultValue=""
+            >
+              <SelectTrigger className="w-[280px] border-2 px-4 py-2 rounded-full dark:bg-[#121212]">
+                <SelectValue placeholder="نوع الاستثمار" />
+              </SelectTrigger>
+              <SelectContent>
+                {/* Dynamically generate SelectItem based on your data */}
+                <SelectItem value="all">الكل</SelectItem>
+
+                <SelectItem value="عقاري">عقاري</SelectItem>
+                <SelectItem value="تكنولوجي">تكنولوجي</SelectItem>
+                <SelectItem value="مالي">مالي</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
 
-          <section id="features" className="container py-16 space-y-8">
+          <section id="investments" className="container py-16 space-y-8">
             <div className="grid md:grid-cols-3 lg:grid-cols-3 sm:grid-cols-1 gap-8">
-              {features.map(
-                ({ title, description, featuresImage }: FeaturesProps) => (
+              {filteredInvestments.map(
+                ({
+                  title,
+                  investmentLocation,
+                  investmentImage,
+                  investmentType,
+                }) => (
                   <Card
                     key={title}
                     className="bg-[#fafafa] hover:bg-[#f1f1f1] dark:bg-[#121212] border-0 dark:hover:bg-[#27272a] transition-all max-w-[470px] duration-400 shadow-md  rounded-[3rem]"
@@ -83,13 +154,16 @@ export default function investments() {
                       <CardTitle className=" text-center ">{title}</CardTitle>
                     </CardHeader>
 
+                    <CardDescription className=" text-lg text-center my-2 mx-4">
+                      {investmentLocation}
+                    </CardDescription>
                     <CardDescription className=" text-lg text-center mx-4">
-                      {description}
+                      {investmentType}
                     </CardDescription>
 
                     <CardFooter>
                       <img
-                        src={featuresImage}
+                        src={investmentImage}
                         alt="About features"
                         className="w-[200px] lg:w-[270px] mx-auto"
                       />
