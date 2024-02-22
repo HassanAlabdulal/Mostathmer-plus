@@ -25,7 +25,7 @@ export async function signup(formData: FormData) {
   const { error } = await supabase.auth.signUp(data);
 
   if (error) {
-    redirect("/error");
+    redirect("/404");
   }
   await SignName(formData.name);
 }
@@ -38,7 +38,7 @@ async function SignName(full_name: string) {
     .eq("id", id);
 
   if (error) {
-    redirect("/error");
+    redirect("/404");
   }
   revalidatePath("/", "layout");
   redirect("/");
@@ -47,7 +47,7 @@ async function SignName(full_name: string) {
 async function GenerateId() {
   const { error, data } = await supabase.auth.getUser();
   if (error) {
-    redirect("/error");
+    redirect("/404");
   }
   return data.user.id;
 }

@@ -31,11 +31,11 @@ const routeList: RouteProps[] = [
     label: "الصفحة الرئيسية",
   },
   {
-    href: "/",
+    href: "/investments",
     label: "الإستثمارات",
   },
   {
-    href: "/",
+    href: "/add-opportunity",
     label: "إضافة استثمار",
   },
   //   {
@@ -125,7 +125,7 @@ export default function Navbar() {
                     </a>
                   ))}
                   <Button asChild>
-                    <Link href="/"> تسجيل الدخول</Link>
+                    <Link href="/sign-in"> تسجيل الدخول</Link>
                   </Button>
                 </nav>
               </SheetContent>
