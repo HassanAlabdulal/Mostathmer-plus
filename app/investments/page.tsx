@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import {
   Card,
+  CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
@@ -20,6 +21,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
 
 interface InvestmentsProps {
   title: string;
@@ -33,21 +35,21 @@ const investments: InvestmentsProps[] = [
   {
     title: "زد فرصك وشارك استثمارك ",
     investmentLocation: "الدمام",
-    investmentImage: "/assets/share.svg",
+    investmentImage: "/assets/photo.png",
     investmentType: "تكنولوجي",
     key: "1",
   },
   {
     title: " وفّرنا لك كل التفاصيل اللي تحتاجها",
     investmentLocation: "الأحساء",
-    investmentImage: "/assets/details.svg",
+    investmentImage: "/assets/photo.png",
     investmentType: "عقاري",
     key: "2",
   },
   {
     title: " وفّرنا لك كل التفاصيل اللي تحتاجها",
     investmentLocation: "الخبر",
-    investmentImage: "/assets/details.svg",
+    investmentImage: "/assets/photo.png",
     investmentType: "عقاري",
     key: "3",
   },
@@ -155,83 +157,44 @@ export default function Investments() {
                   investmentType,
                   key,
                 }) => (
-                  //   <Card
-                  //     key={key}
-                  //     className="bg-[#fafafa] hover:bg-[#f1f1f1] dark:bg-[#121212] border-0 dark:hover:bg-[#27272a] transition-all max-w-[470px] duration-400 shadow-md  rounded-[3rem] p-0"
-                  //   >
-                  //     <CardHeader className="">
-                  //       <img
-                  //         src={investmentImage}
-                  //         alt="About features"
-                  //         className="w-[200px] lg:w-full"
-                  //       />
-                  //     </CardHeader>
-
-                  //     <CardDescription className=" text-lg text-center my-2 mx-4">
-                  //       {investmentLocation}
-                  //     </CardDescription>
-                  //     <CardDescription className=" text-lg text-center mx-4">
-                  //       {investmentType}
-                  //     </CardDescription>
-
-                  //     <CardFooter>
-                  //       <CardTitle className=" text-center ">{title}</CardTitle>
-                  //     </CardFooter>
-                  //   </Card>
                   <Card
                     className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
                     key={key}
                   >
-                    <a href="/show-opportunity">
+                    <Link href="/show-opportunity">
                       <img
-                        className="rounded-t-lg"
-                        src="/assets/photo.png"
-                        alt=""
+                        className="rounded-xl"
+                        src={investmentImage}
+                        alt="Investment image"
                       />
-                    </a>
-                    <div className="p-5 flex flex-col justify-center items-center">
-                      <a href="#">
-                        <CardHeader className="mb-2 text-xl text-center font-bold tracking-tight text-gray-900 dark:text-white">
-                          {title}
-                        </CardHeader>
-                      </a>
-                      <CardDescription className="mb-3 font-normal text-muted-foreground">
-                        {investmentLocation}
-                        {investmentType}
-                        {/* <div className="flex flex-wrap justify-center gap-4">
-                          {serviceList.map((service: string) => (
-                            <div key={service}>
-                              <Badge
-                                data-aos="fade-up"
-                                variant="secondary"
-                                className="md:text-md text-sm bg-[#d0b880] hover:bg-[#d0b880]/90"
-                              >
-                                {service}
-                              </Badge>
-                            </div>
-                          ))}
-                        </div> */}
+                    </Link>
+                    <CardHeader className="p-5 flex flex-col justify-center items-center">
+                      <CardDescription className="mb-4 text-xl text-center font-bold tracking-tight text-gray-900 dark:text-white">
+                        {title}
                       </CardDescription>
-                      <Button asChild>
-                        <Link href="/show-opportunity">
-                          اعرف أكثر
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke-width="1.5"
-                            stroke="currentColor"
-                            className="w-4 h-6 mr-2"
+                      <CardContent className="mb-8 font-normal text-muted-foreground">
+                        <div className="flex flex-wrap items-center justify-center gap-4 w-full">
+                          <Badge
+                            variant="secondary"
+                            className="md:text-base text-sm flex items-center justify-center bg-[#bfa260] hover:bg-[#bfa260]/90 w-24 h-8"
                           >
-                            <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18"
-                            />
-                          </svg>
-                        </Link>
-                      </Button>
-                    </div>
+                            {investmentLocation}
+                          </Badge>
+
+                          <Badge
+                            variant="secondary"
+                            className="md:text-base text-sm flex items-center justify-center bg-[#bfa260] hover:bg-[#bfa260]/90 w-24 h-8"
+                          >
+                            {investmentType}
+                          </Badge>
+                        </div>
+                      </CardContent>
+                      <CardFooter>
+                        <Button asChild className="px-10 rounded-3xl">
+                          <Link href="/show-opportunity">اعرف أكثر</Link>
+                        </Button>
+                      </CardFooter>
+                    </CardHeader>
                   </Card>
                 )
               )}
