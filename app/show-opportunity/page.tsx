@@ -78,7 +78,7 @@ export default function ShowOpportunity() {
               <img
                 src={projectImageUrl}
                 alt="Project"
-                className="  object-cover min-w-[200px] min-h-[200px] max-w-[500px] max-h-[500px]"
+                className="  object-cover min-w-[100px] min-h-[100px] max-w-[500px] max-h-[500px] max-sm:max-w-[250px] max-sm:max-h-[250px]"
               />
             </CardContent>
           </Card>
