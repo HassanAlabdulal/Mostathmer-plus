@@ -19,6 +19,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import Link from "next/link";
 
 interface InvestmentsProps {
   title: string;
@@ -154,28 +155,70 @@ export default function Investments() {
                   investmentType,
                   key,
                 }) => (
+                  //   <Card
+                  //     key={key}
+                  //     className="bg-[#fafafa] hover:bg-[#f1f1f1] dark:bg-[#121212] border-0 dark:hover:bg-[#27272a] transition-all max-w-[470px] duration-400 shadow-md  rounded-[3rem] p-0"
+                  //   >
+                  //     <CardHeader className="">
+                  //       <img
+                  //         src={investmentImage}
+                  //         alt="About features"
+                  //         className="w-[200px] lg:w-full"
+                  //       />
+                  //     </CardHeader>
+
+                  //     <CardDescription className=" text-lg text-center my-2 mx-4">
+                  //       {investmentLocation}
+                  //     </CardDescription>
+                  //     <CardDescription className=" text-lg text-center mx-4">
+                  //       {investmentType}
+                  //     </CardDescription>
+
+                  //     <CardFooter>
+                  //       <CardTitle className=" text-center ">{title}</CardTitle>
+                  //     </CardFooter>
+                  //   </Card>
                   <Card
+                    className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
                     key={key}
-                    className="bg-[#fafafa] hover:bg-[#f1f1f1] dark:bg-[#121212] border-0 dark:hover:bg-[#27272a] transition-all max-w-[470px] duration-400 shadow-md  rounded-[3rem] p-0"
                   >
-                    <CardHeader className="">
+                    <a href="#">
                       <img
-                        src={investmentImage}
-                        alt="About features"
-                        className="w-[200px] lg:w-full"
+                        className="rounded-t-lg"
+                        src="/assets/photo.png"
+                        alt=""
                       />
-                    </CardHeader>
-
-                    <CardDescription className=" text-lg text-center my-2 mx-4">
-                      {investmentLocation}
-                    </CardDescription>
-                    <CardDescription className=" text-lg text-center mx-4">
-                      {investmentType}
-                    </CardDescription>
-
-                    <CardFooter>
-                      <CardTitle className=" text-center ">{title}</CardTitle>
-                    </CardFooter>
+                    </a>
+                    <div className="p-5 flex flex-col justify-center items-center">
+                      <a href="#">
+                        <CardHeader className="mb-2 text-xl text-center font-bold tracking-tight text-gray-900 dark:text-white">
+                          {title}
+                        </CardHeader>
+                      </a>
+                      <CardDescription className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                        {investmentLocation}
+                        {investmentType}
+                      </CardDescription>
+                      <Button asChild>
+                        <Link href="/show-opportunity">
+                          اعرف أكثر
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            className="w-4 h-6 mr-2"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18"
+                            />
+                          </svg>
+                        </Link>
+                      </Button>
+                    </div>
                   </Card>
                 )
               )}
