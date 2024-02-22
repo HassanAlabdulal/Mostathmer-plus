@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import {
   Card,
@@ -33,24 +35,24 @@ interface InvestmentsProps {
 
 const investments: InvestmentsProps[] = [
   {
-    title: "زد فرصك وشارك استثمارك ",
+    title: "بناء عمارة سكنية فاخرة ",
     investmentLocation: "الدمام",
     investmentImage: "/assets/photo.png",
-    investmentType: "تكنولوجي",
+    investmentType: "عقاري",
     key: "1",
   },
   {
-    title: " وفّرنا لك كل التفاصيل اللي تحتاجها",
+    title: "بناء مستشفى في الهفوف ",
     investmentLocation: "الأحساء",
     investmentImage: "/assets/photo.png",
-    investmentType: "عقاري",
+    investmentType: "صحي",
     key: "2",
   },
   {
-    title: " وفّرنا لك كل التفاصيل اللي تحتاجها",
+    title: "مطعم في أجدان ",
     investmentLocation: "الخبر",
     investmentImage: "/assets/photo.png",
-    investmentType: "عقاري",
+    investmentType: "تجاري",
     key: "3",
   },
 ];
@@ -133,7 +135,7 @@ export default function Investments() {
               onValueChange={(value) => setTypeFilter(value)}
               defaultValue=""
             >
-              <SelectTrigger className="w-[280px] border-2 px-4 py-2 rounded-full dark:bg-[#121212]">
+              <SelectTrigger className="w-[280px] border-2 px-4 py-5 rounded-full dark:bg-[#121212]">
                 <SelectValue placeholder="نوع الاستثمار" />
               </SelectTrigger>
               <SelectContent>
@@ -141,8 +143,22 @@ export default function Investments() {
                 <SelectItem value="all">الكل</SelectItem>
 
                 <SelectItem value="عقاري">عقاري</SelectItem>
-                <SelectItem value="تكنولوجي">تكنولوجي</SelectItem>
-                <SelectItem value="مالي">مالي</SelectItem>
+                <SelectItem value="صناعي">صناعي</SelectItem>
+                <SelectItem value="سياحي">سياحي</SelectItem>
+                <SelectItem value="تعليمي">تعليمي</SelectItem>
+                <SelectItem value="صحي">صحي</SelectItem>
+                <SelectItem value="زراعي">زراعي</SelectItem>
+                <SelectItem value="تجاري">تجاري</SelectItem>
+                <SelectItem value="خدماتي">خدماتي</SelectItem>
+                <SelectItem value="طاقة">طاقة</SelectItem>
+                <SelectItem value="نقل ولوجستيات">نقل ولوجستيات</SelectItem>
+                <SelectItem value="ترفيهي">ترفيهي</SelectItem>
+                <SelectItem value="رياضي">رياضي</SelectItem>
+                <SelectItem value="بنية تحتية">بنية تحتية</SelectItem>
+                <SelectItem value="تقنية المعلومات">تقنية المعلومات</SelectItem>
+                <SelectItem value="تجارة إلكترونية">تجارة إلكترونية</SelectItem>
+                <SelectItem value="استشارات">استشارات</SelectItem>
+                <SelectItem value="تسويق">تسويق</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -158,12 +174,12 @@ export default function Investments() {
                   key,
                 }) => (
                   <Card
-                    className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+                    className="max-w-sm bg-white border border-gray-200 rounded-xl shadow dark:bg-gray-800 dark:border-gray-700"
                     key={key}
                   >
                     <Link href="/show-opportunity">
                       <img
-                        className="rounded-xl"
+                        className=" rounded-t-2xl"
                         src={investmentImage}
                         alt="Investment image"
                       />
@@ -191,7 +207,13 @@ export default function Investments() {
                       </CardContent>
                       <CardFooter>
                         <Button asChild className="px-10 rounded-3xl">
-                          <Link href="/show-opportunity">اعرف أكثر</Link>
+                          <Link href="/show-opportunity">
+                            اعرف أكثر
+                            <FontAwesomeIcon
+                              icon={faArrowLeft}
+                              className="mr-2"
+                            />
+                          </Link>
                         </Button>
                       </CardFooter>
                     </CardHeader>
