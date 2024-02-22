@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { InvestmentsProps } from "@/interfaces/investments";
+
 import Image from "next/image";
 import {
   Card,
@@ -25,13 +27,13 @@ import {
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 
-interface InvestmentsProps {
-  title: string;
-  investmentLocation: string;
-  investmentImage: string;
-  investmentType: string;
-  key: string;
-}
+// interface InvestmentsProps {
+//   title: string;
+//   investmentLocation: string;
+//   investmentImage: string;
+//   investmentType: string;
+//   key: string;
+// }
 
 const investments: InvestmentsProps[] = [
   {
@@ -62,6 +64,9 @@ export default function Investments() {
   const [searchQuery, setSearchQuery] = useState("");
   const [locationFilter, setLocationFilter] = useState("");
   const [typeFilter, setTypeFilter] = useState("");
+  const [investmentsData, setInvestmentsData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   // Debugging statement to check the current filter states
   console.log({ searchQuery, locationFilter, typeFilter });
@@ -163,62 +168,68 @@ export default function Investments() {
             </Select>
           </div>
 
-          <section id="investments" className=" py-16 space-y-8">
+          <section id="investments" className="py-16 space-y-8">
             <div className="grid md:grid-cols-3 lg:grid-cols-3 sm:grid-cols-1 gap-8">
-              {filteredInvestments.map(
-                ({
-                  title,
-                  investmentLocation,
-                  investmentImage,
-                  investmentType,
-                  key,
-                }) => (
-                  <Card
-                    className="max-w-sm bg-[#fafafa] border border-gray-200 rounded-xl shadow dark:bg-[#121212]
+              {isLoading ? (
+                <div>Loading...</div>
+              ) : error ? (
+                <div>Error: {error}</div>
+              ) : (
+                filteredInvestments.map(
+                  ({
+                    title,
+                    investmentLocation,
+                    investmentImage,
+                    investmentType,
+                    key,
+                  }) => (
+                    <Card
+                      className="max-w-sm bg-[#fafafa] border border-gray-200 rounded-xl shadow dark:bg-[#121212]
                      dark:border-gray-700 transition-all duration-300 hover:scale-105"
-                    key={key}
-                  >
-                    <Link href="/show-opportunity">
-                      <img
-                        className="rounded-t-xl h-[200px] w-full object-fit"
-                        src={investmentImage}
-                        alt="Investment image"
-                      />
-                    </Link>
-                    <CardHeader className="p-5 flex flex-col justify-center items-center">
-                      <CardDescription className="mb-4 text-xl text-center font-semibold tracking-tight text-gray-900 dark:text-white">
-                        {title}
-                      </CardDescription>
-                      <CardContent className="mb-8 font-normal text-muted-foreground">
-                        <div className="flex flex-wrap items-center justify-center gap-4 w-full">
-                          <Badge
-                            variant="secondary"
-                            className="md:text-base text-sm flex items-center justify-center bg-[#bfa260] hover:bg-[#bfa260]/90 w-24 h-8"
-                          >
-                            {investmentLocation}
-                          </Badge>
+                      key={key}
+                    >
+                      <Link href="/show-opportunity">
+                        <img
+                          className="rounded-t-xl h-[200px] w-full object-fit"
+                          src={investmentImage}
+                          alt="Investment image"
+                        />
+                      </Link>
+                      <CardHeader className="p-5 flex flex-col justify-center items-center">
+                        <CardDescription className="mb-4 text-xl text-center font-semibold tracking-tight text-gray-900 dark:text-white">
+                          {title}
+                        </CardDescription>
+                        <CardContent className="mb-8 font-normal text-muted-foreground">
+                          <div className="flex flex-wrap items-center justify-center gap-4 w-full">
+                            <Badge
+                              variant="secondary"
+                              className="md:text-base text-sm flex items-center justify-center bg-[#bfa260] hover:bg-[#bfa260]/90 w-24 h-8"
+                            >
+                              {investmentLocation}
+                            </Badge>
 
-                          <Badge
-                            variant="secondary"
-                            className="md:text-base text-sm flex items-center justify-center bg-[#bfa260] hover:bg-[#bfa260]/90 w-24 h-8"
-                          >
-                            {investmentType}
-                          </Badge>
-                        </div>
-                      </CardContent>
-                      <CardFooter>
-                        <Button asChild className="px-10 rounded-3xl">
-                          <Link href="/show-opportunity">
-                            اعرف أكثر
-                            <FontAwesomeIcon
-                              icon={faArrowLeft}
-                              className="mr-2"
-                            />
-                          </Link>
-                        </Button>
-                      </CardFooter>
-                    </CardHeader>
-                  </Card>
+                            <Badge
+                              variant="secondary"
+                              className="md:text-base text-sm flex items-center justify-center bg-[#bfa260] hover:bg-[#bfa260]/90 w-24 h-8"
+                            >
+                              {investmentType}
+                            </Badge>
+                          </div>
+                        </CardContent>
+                        <CardFooter>
+                          <Button asChild className="px-10 rounded-3xl">
+                            <Link href="/show-opportunity">
+                              اعرف أكثر
+                              <FontAwesomeIcon
+                                icon={faArrowLeft}
+                                className="mr-2"
+                              />
+                            </Link>
+                          </Button>
+                        </CardFooter>
+                      </CardHeader>
+                    </Card>
+                  )
                 )
               )}
             </div>
