@@ -115,7 +115,7 @@ export default function AddOpportunity() {
             <Textarea
               className="resize-none"
               id="detailedDescription"
-              placeholder=" عمارة سكنية مكونة من 6 طوابق و10 شقق"
+              placeholder=" عمارة سكنية مكونة من 6 طوابق"
               {...register("detailedDescription", {
                 required: "هذا الحقل مطلوب",
               })}

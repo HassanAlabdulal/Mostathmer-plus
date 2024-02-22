@@ -34,7 +34,7 @@ export default function ShowOpportunity() {
         projectDate: '14 ديسمبر 2023 - 14 ديسمبر 2025',
         investmentLocation: 'الرياض',
         contactDetails: 'الاسم: محمد السالم | الهاتف: 0559094843 | البريد الإلكتروني: mohammed@gmail.com',
-        projectImageUrl: '/assets/photo.jpg',
+        projectImageUrl: '/assets/photo.png',
       };
   
       // Simulate setting state with data fetched from a database
@@ -68,7 +68,7 @@ export default function ShowOpportunity() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
         {/* Card for Project Image */}
-        <Card className="hover:shadow-lg min-h-[300px] col-span-1 md:col-span-2">
+        <Card className="flex items-center justify-center hover:bg-[#f1f1f1] dark:hover:bg-[#27272a] min-h-[300px] col-span-1 md:col-span-2">
         <CardContent>
         <img
         src={projectImageUrl}
@@ -80,21 +80,21 @@ export default function ShowOpportunity() {
         </Card>
 
           {/* Card for Detailed Description */}
-          <Card className="hover:shadow-lg h-32 col-span-1 md:col-span-2">
+          <Card className="flex items-center justify-center hover:bg-[#f1f1f1] dark:hover:bg-[#27272a] h-32 col-span-1 md:col-span-2">
             <CardContent>
-              <p className="text-center mt-5"><strong>الوصف التفصيلي:</strong> <br />  {detailedDescription}</p>
+              <p className="text-center"><strong>الوصف التفصيلي:</strong> <br />  {detailedDescription}</p>
             </CardContent>
           </Card>
           
           {/* Card for Investment Type */}
-          <Card className="hover:shadow-lg h-32">
+          <Card className="flex items-center justify-center hover:bg-[#f1f1f1] dark:hover:bg-[#27272a] h-32">
             <CardContent>
               <p className="text-center mt-5"><strong>نوع الاستثمار:</strong> <br />  {investmentType}</p>
             </CardContent>
           </Card>
 
           {/* Card for Project Value */}
-          <Card className="hover:shadow-lg h-32">
+          <Card className="flex items-center justify-center hover:bg-[#f1f1f1] dark:hover:bg-[#27272a] h-32">
             <CardContent>
               <p className="text-center mt-5"><strong>تكلفة المشروع:</strong> <br /> {formattedProjectValue}</p>
             </CardContent>
@@ -102,21 +102,21 @@ export default function ShowOpportunity() {
           
 
           {/* Card for Investment Location */}
-          <Card className="hover:shadow-lg h-32">
+          <Card className="flex items-center justify-center hover:bg-[#f1f1f1] dark:hover:bg-[#27272a] h-32">
             <CardContent>
               <p className="text-center mt-5"><strong>موقع الاستثمار:</strong> <br />  {investmentLocation}</p>
             </CardContent>
           </Card>
 
         {/* Card for Project Value */}
-        <Card className="hover:shadow-lg h-32">
+        <Card className="flex items-center justify-center hover:bg-[#f1f1f1] dark:hover:bg-[#27272a] h-32">
             <CardContent>
               <p className="text-center mt-5"><strong>المدة الزمنية:</strong> <br />  {projectDate}</p>
             </CardContent>
           </Card>
 
           {/* Card for Contact Details */}
-          <Card className="hover:shadow-lg h-32 col-span-1 md:col-span-2">
+          <Card className="flex items-center justify-center hover:bg-[#f1f1f1] dark:hover:bg-[#27272a] h-32 col-span-1 md:col-span-2">
             <CardContent>
               <p className="text-center mt-5"><strong>معلومات الاتصال:</strong> <br />  {contactDetails}</p>
             </CardContent>
