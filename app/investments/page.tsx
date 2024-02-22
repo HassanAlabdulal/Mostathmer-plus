@@ -31,24 +31,24 @@ interface InvestmentsProps {
 const investments: InvestmentsProps[] = [
   {
     title: "زد فرصك وشارك استثمارك ",
-    investmentLocation: " الدمام",
+    investmentLocation: "الدمام",
     investmentImage: "/assets/share.svg",
     investmentType: "تكنولوجي",
     key: "1",
   },
   {
     title: " وفّرنا لك كل التفاصيل اللي تحتاجها",
-    investmentLocation: " الرياض",
+    investmentLocation: "الأحساء",
     investmentImage: "/assets/details.svg",
     investmentType: "عقاري",
     key: "2",
   },
   {
     title: " وفّرنا لك كل التفاصيل اللي تحتاجها",
-    investmentLocation: " الرياض",
+    investmentLocation: "الخبر",
     investmentImage: "/assets/details.svg",
     investmentType: "عقاري",
-    key: "2",
+    key: "3",
   },
 ];
 
@@ -91,13 +91,22 @@ export default function Investments() {
               defaultValue=""
             >
               <SelectTrigger className="w-[280px] border-2 px-4 py-5 rounded-full dark:bg-[#121212]">
-                <SelectValue placeholder="الموقع" />
+                <SelectValue placeholder="موقع الإستثمار" />
               </SelectTrigger>
               <SelectContent>
                 {/* Dynamically generate SelectItem based on your data */}
                 <SelectItem value="all">الكل</SelectItem>
                 <SelectItem value="الرياض">الرياض</SelectItem>
                 <SelectItem value="جدة">جدة</SelectItem>
+                <SelectItem value="مكة المكرمة">مكة المكرمة</SelectItem>
+                <SelectItem value="المدينة المنورة">المدينة المنورة</SelectItem>
+                <SelectItem value="الخبر">الخبر</SelectItem>
+                <SelectItem value="الطائف">الطائف</SelectItem>
+                <SelectItem value="تبوك">تبوك</SelectItem>
+                <SelectItem value="القطيف">القطيف</SelectItem>
+                <SelectItem value="خميس مشيط">خميس مشيط</SelectItem>
+                <SelectItem value="الأحساء">الأحساء</SelectItem>
+                <SelectItem value="حائل">حائل</SelectItem>
                 <SelectItem value="الدمام">الدمام</SelectItem>
               </SelectContent>
             </Select>
@@ -135,7 +144,7 @@ export default function Investments() {
             </Select>
           </div>
 
-          <section id="investments" className="container py-16 space-y-8">
+          <section id="investments" className=" py-16 space-y-8">
             <div className="grid md:grid-cols-3 lg:grid-cols-3 sm:grid-cols-1 gap-8">
               {filteredInvestments.map(
                 ({
@@ -147,10 +156,14 @@ export default function Investments() {
                 }) => (
                   <Card
                     key={key}
-                    className="bg-[#fafafa] hover:bg-[#f1f1f1] dark:bg-[#121212] border-0 dark:hover:bg-[#27272a] transition-all max-w-[470px] duration-400 shadow-md  rounded-[3rem]"
+                    className="bg-[#fafafa] hover:bg-[#f1f1f1] dark:bg-[#121212] border-0 dark:hover:bg-[#27272a] transition-all max-w-[470px] duration-400 shadow-md  rounded-[3rem] p-0"
                   >
-                    <CardHeader className="mt-4">
-                      <CardTitle className=" text-center ">{title}</CardTitle>
+                    <CardHeader className="">
+                      <img
+                        src={investmentImage}
+                        alt="About features"
+                        className="w-[200px] lg:w-full"
+                      />
                     </CardHeader>
 
                     <CardDescription className=" text-lg text-center my-2 mx-4">
@@ -161,11 +174,7 @@ export default function Investments() {
                     </CardDescription>
 
                     <CardFooter>
-                      <img
-                        src={investmentImage}
-                        alt="About features"
-                        className="w-[200px] lg:w-[270px] mx-auto"
-                      />
+                      <CardTitle className=" text-center ">{title}</CardTitle>
                     </CardFooter>
                   </Card>
                 )
