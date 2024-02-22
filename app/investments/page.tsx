@@ -25,6 +25,7 @@ interface InvestmentsProps {
   investmentLocation: string;
   investmentImage: string;
   investmentType: string;
+  key: string;
 }
 
 const investments: InvestmentsProps[] = [
@@ -33,25 +34,22 @@ const investments: InvestmentsProps[] = [
     investmentLocation: " الدمام",
     investmentImage: "/assets/share.svg",
     investmentType: "تكنولوجي",
+    key: "1",
   },
   {
     title: " وفّرنا لك كل التفاصيل اللي تحتاجها",
     investmentLocation: " الرياض",
     investmentImage: "/assets/details.svg",
     investmentType: "عقاري",
+    key: "2",
   },
   {
-    title: " فلترها بكيفك واختار زين",
-    investmentLocation: " جدة",
-    investmentImage: "/assets/filter.svg",
+    title: " وفّرنا لك كل التفاصيل اللي تحتاجها",
+    investmentLocation: " الرياض",
+    investmentImage: "/assets/details.svg",
     investmentType: "عقاري",
+    key: "3",
   },
-  //   {
-  //     title: " راقب الصرف لحظة بلحظة",
-  //     investmentLocation: " اعرف قيمة ريالك حول العالم! بسرعة وسهولة. ",
-  //     investmentImage: "/assets/home.svg",
-  //     dataAos: "fade-up",
-  //   },
 ];
 
 export default function Investments() {
@@ -145,9 +143,10 @@ export default function Investments() {
                   investmentLocation,
                   investmentImage,
                   investmentType,
+                  key,
                 }) => (
                   <Card
-                    key={title}
+                    key={key}
                     className="bg-[#fafafa] hover:bg-[#f1f1f1] dark:bg-[#121212] border-0 dark:hover:bg-[#27272a] transition-all max-w-[470px] duration-400 shadow-md  rounded-[3rem]"
                   >
                     <CardHeader className="mt-4">
