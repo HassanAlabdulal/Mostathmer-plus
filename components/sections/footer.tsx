@@ -34,13 +34,25 @@ export default function Footer() {
       </section>
 
       <section className=" pb-8 flex justify-center items-center gap-5">
-        <a href="/" className="text-2xl">
+        <a
+          href="https://twitter.com/7assan_abdulaal"
+          className="text-2xl"
+          target="_blank"
+        >
           <FontAwesomeIcon icon={faXTwitter} />
         </a>
-        <a href="/" className="text-2xl">
+        <a
+          href="https://github.com/HassanAlabdulal"
+          className="text-2xl"
+          target="_blank"
+        >
           <FontAwesomeIcon icon={faGithub} />
         </a>
-        <a href="/" className="text-2xl">
+        <a
+          href="https://www.linkedin.com/in/hassan-alabdulal/"
+          className="text-2xl"
+          target="_blank"
+        >
           <FontAwesomeIcon icon={faLinkedin} />
         </a>
       </section>
