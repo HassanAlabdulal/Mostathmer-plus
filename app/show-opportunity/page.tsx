@@ -34,7 +34,7 @@ export default function ShowOpportunity() {
         projectDate: '14 ديسمبر 2023 - 14 ديسمبر 2025',
         investmentLocation: 'الرياض',
         contactDetails: 'الاسم: محمد السالم | الهاتف: 0559094843 | البريد الإلكتروني: mohammed@gmail.com',
-        projectImageUrl: '/assets/photo.jpg',
+        projectImageUrl: '/assets/photo.png',
       };
   
       // Simulate setting state with data fetched from a database
@@ -82,7 +82,7 @@ export default function ShowOpportunity() {
           {/* Card for Detailed Description */}
           <Card className="hover:shadow-lg h-32 col-span-1 md:col-span-2">
             <CardContent>
-              <p className="text-center mt-5"><strong>الوصف التفصيلي:</strong> <br />  {detailedDescription}</p>
+              <p className="text-center"><strong>الوصف التفصيلي:</strong> <br />  {detailedDescription}</p>
             </CardContent>
           </Card>
           
