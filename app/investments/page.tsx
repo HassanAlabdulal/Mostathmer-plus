@@ -48,7 +48,7 @@ const investments: InvestmentsProps[] = [
     investmentLocation: " الرياض",
     investmentImage: "/assets/details.svg",
     investmentType: "عقاري",
-    key: "3",
+    key: "2",
   },
 ];
 
@@ -102,7 +102,7 @@ export default function Investments() {
               </SelectContent>
             </Select>
 
-            <div className="flex items-center justify-center  w-1/3 overflow-hidden rounded-full border-2 dark:bg-[#121212] px-4 py-1">
+            <div className="flex items-center justify-center  md:w-1/3 w-[280px] overflow-hidden rounded-full border-2 dark:bg-[#121212] px-4 py-1">
               <Image
                 src="/assets/search.svg"
                 alt="search"
