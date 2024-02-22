@@ -36,22 +36,22 @@ interface InvestmentsProps {
 const investments: InvestmentsProps[] = [
   {
     title: "بناء عمارة سكنية فاخرة ",
-    investmentLocation: "الدمام",
-    investmentImage: "/assets/photo.png",
+    investmentLocation: "الرياض",
+    investmentImage: "/assets/building.jpg",
     investmentType: "عقاري",
     key: "1",
   },
   {
     title: "بناء مستشفى في الهفوف ",
     investmentLocation: "الأحساء",
-    investmentImage: "/assets/photo.png",
+    investmentImage: "/assets/hospital.jpg",
     investmentType: "صحي",
     key: "2",
   },
   {
     title: "مطعم في أجدان ",
     investmentLocation: "الخبر",
-    investmentImage: "/assets/photo.png",
+    investmentImage: "/assets/restaurant.jpg",
     investmentType: "تجاري",
     key: "3",
   },
@@ -174,12 +174,12 @@ export default function Investments() {
                   key,
                 }) => (
                   <Card
-                    className="max-w-sm bg-white border border-gray-200 rounded-xl shadow dark:bg-gray-800 dark:border-gray-700"
+                    className="max-w-sm bg-[#fafafa] border border-gray-200 rounded-xl shadow dark:bg-gray-800 dark:border-gray-700"
                     key={key}
                   >
                     <Link href="/show-opportunity">
                       <img
-                        className=" rounded-t-2xl"
+                        className="rounded-t-xl h-[200px] w-full object-fit"
                         src={investmentImage}
                         alt="Investment image"
                       />
