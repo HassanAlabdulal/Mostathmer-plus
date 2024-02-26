@@ -26,6 +26,7 @@ import {
 } from "@/components/ui/select";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
+import { investments } from "@/data/investments_dome";
 
 // interface InvestmentsProps {
 //   title: string;
@@ -34,30 +35,6 @@ import { Badge } from "@/components/ui/badge";
 //   investmentType: string;
 //   key: string;
 // }
-
-const investments: InvestmentsProps[] = [
-  {
-    title: "بناء عمارة سكنية فاخرة ",
-    investmentLocation: "الرياض",
-    investmentImage: "/assets/building.jpg",
-    investmentType: "عقاري",
-    key: "1",
-  },
-  {
-    title: "بناء مستشفى في الهفوف ",
-    investmentLocation: "الأحساء",
-    investmentImage: "/assets/hospital.jpg",
-    investmentType: "صحي",
-    key: "2",
-  },
-  {
-    title: "مطعم في أجدان ",
-    investmentLocation: "الخبر",
-    investmentImage: "/assets/restaurant.jpg",
-    investmentType: "تجاري",
-    key: "3",
-  },
-];
 
 export default function Investments() {
   // States for managing the search query, location, and investment type
@@ -218,7 +195,7 @@ export default function Investments() {
                         </CardContent>
                         <CardFooter>
                           <Button asChild className="px-10 rounded-3xl">
-                            <Link href="/show-opportunity">
+                            <Link href={`/investments/${key}`}>
                               اعرف أكثر
                               <FontAwesomeIcon
                                 icon={faArrowLeft}
