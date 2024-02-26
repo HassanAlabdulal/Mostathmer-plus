@@ -39,7 +39,7 @@ export default function InvestmentDetails({
         </div>
 
         {/* Cards Section */}
-        <div className="">
+        <div className=" grid-cols-1 md:grid-cols-2">
           {/* Card for Project Image */}
           <Card className="flex items-center justify-center  min-h-[300px] max-h-[500px] ">
             <CardContent className="flex items-center justify-center p-10">

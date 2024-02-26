@@ -165,7 +165,7 @@ export default function Investments() {
                      dark:border-gray-700 transition-all duration-300 hover:scale-105"
                       key={key}
                     >
-                      <Link href="/show-opportunity">
+                      <Link href={`/investments/${key}`}>
                         <img
                           className="rounded-t-xl h-[200px] w-full object-fit"
                           src={investmentImage}
