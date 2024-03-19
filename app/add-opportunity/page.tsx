@@ -108,7 +108,7 @@ export default function AddOpportunity() {
           className="space-y-6 p-8 rounded"
         >
           {/* Page title */}
-          <h2 className="text-lg font-semibold text-center">
+          <h2 className="text-xl font-semibold text-center">
             إضافة فرصة استثمارية جديدة
           </h2>
 
@@ -149,7 +149,7 @@ export default function AddOpportunity() {
             <select
               id="investmentType"
               {...register("investmentType", { required: "هذا الحقل مطلوب" })}
-              className="border border-gray-300 rounded-md shadow-sm mr-1"
+              className="border border-gray-300 dark:bg-[#121212] rounded-md shadow-sm mr-1"
             >
               <option value="">{/* The default option */}اختر</option>
               <option value="realEstate">عقاري</option>
@@ -184,7 +184,7 @@ export default function AddOpportunity() {
                 id="projectValue"
                 type="text"
                 {...register("projectValue", { required: "هذا الحقل مطلوب" })}
-                className="flex-1 border border-gray-300 rounded-md shadow-sm pr-2 h-8"
+                className="flex-1 border border-gray-300 dark:bg-[#121212] rounded-md shadow-sm pr-2 h-8"
               />
               <label className="ml-2 mr-1 border border-gray-300 rounded-md shadow-sm px-4 py-1">
                 ريال{" "}
@@ -200,12 +200,12 @@ export default function AddOpportunity() {
             <label htmlFor="investmentLocation">موقع الاستثمار: </label>
             <select
               id="investmentLocation"
-              className="border border-gray-300 rounded-md shadow-sm"
+              className="border border-gray-300 dark:bg-[#121212] rounded-md shadow-sm"
               {...register("investmentLocation", {
                 required: "هذا الحقل مطلوب",
               })}
             >
-              <option value="">اختر مدينة...</option>
+              <option value="">اختر مدينة</option>
               {cities.map((city, index) => (
                 <option key={index} value={city}>
                   {city}
